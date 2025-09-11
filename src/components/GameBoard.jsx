@@ -30,6 +30,7 @@ const GameBoard = () => {
   const [score, setScore] = useState(null);
   const [showCorrectPositions, setShowCorrectPositions] = useState(false);
   const [showScorePopup, setShowScorePopup] = useState(false);
+  const [solutionShown, setSolutionShown] = useState(false);
 
   const handlePositionChange = (countryName, position) => {
     setUserPositions(prev => ({
@@ -53,6 +54,7 @@ const GameBoard = () => {
     setScore(null);
     setShowCorrectPositions(false);
     setShowScorePopup(false);
+    setSolutionShown(false);
     resetZoom();
   };
 
@@ -66,6 +68,7 @@ const GameBoard = () => {
       solutionPositions[country.name] = country.correctPosition;
     });
     setUserPositions(solutionPositions);
+    setSolutionShown(true);
   };
 
   // Zoom and pan event handlers
@@ -120,20 +123,22 @@ const GameBoard = () => {
         </div>
         
         <div className="controls-section">
-          <button 
-            className="btn-primary" 
-            onClick={handleSubmit} 
-            disabled={gamePhase === 'submitted'}
-          >
-            Submit Guess
-          </button>
+          {!solutionShown && (
+            <button 
+              className="btn-primary" 
+              onClick={handleSubmit} 
+              disabled={gamePhase === 'submitted'}
+            >
+              Submit Guess
+            </button>
+          )}
           <button 
             className="btn-secondary" 
             onClick={handleReset}
           >
             Reset
           </button>
-          {gamePhase === 'placing' && (
+          {gamePhase === 'placing' && !solutionShown && (
             <button 
               className="btn-tertiary" 
               onClick={showSolution}
