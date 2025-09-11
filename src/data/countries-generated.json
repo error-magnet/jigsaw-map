@@ -1,0 +1,4077 @@
+{
+  "projection": "mercator",
+  "canvasSize": {
+    "width": 900,
+    "height": 600
+  },
+  "countries": [
+    {
+      "name": "Japan",
+      "capital": "Tokyo",
+      "correctPosition": {
+        "x": 799,
+        "y": 227
+      },
+      "gpsCoordinates": {
+        "latitude": 35.6895,
+        "longitude": 139.6917
+      },
+      "population": 37468302,
+      "color": "#BC002D",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "India",
+      "capital": "Delhi",
+      "correctPosition": {
+        "x": 643,
+        "y": 259
+      },
+      "gpsCoordinates": {
+        "latitude": 28.6667,
+        "longitude": 77.2167
+      },
+      "population": 28513682,
+      "color": "#FF9933",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Mexico",
+      "capital": "Ciudad de México (Mexico City)",
+      "correctPosition": {
+        "x": 202,
+        "y": 298
+      },
+      "gpsCoordinates": {
+        "latitude": 19.4273,
+        "longitude": -99.1419
+      },
+      "population": 21580827,
+      "color": "#006847",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Egypt",
+      "capital": "Al-Qahirah (Cairo)",
+      "correctPosition": {
+        "x": 528,
+        "y": 253
+      },
+      "gpsCoordinates": {
+        "latitude": 30.0392,
+        "longitude": 31.2394
+      },
+      "population": 20076002,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "China",
+      "capital": "Beijing",
+      "correctPosition": {
+        "x": 741,
+        "y": 207
+      },
+      "gpsCoordinates": {
+        "latitude": 39.9075,
+        "longitude": 116.3972
+      },
+      "population": 19617963,
+      "color": "#DE2910",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Bangladesh",
+      "capital": "Dhaka",
+      "correctPosition": {
+        "x": 676,
+        "y": 280
+      },
+      "gpsCoordinates": {
+        "latitude": 23.7104,
+        "longitude": 90.4074
+      },
+      "population": 19578421,
+      "color": "#006A4E",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Argentina",
+      "capital": "Buenos Aires",
+      "correctPosition": {
+        "x": 304,
+        "y": 516
+      },
+      "gpsCoordinates": {
+        "latitude": -34.6051,
+        "longitude": -58.4004
+      },
+      "population": 14966530,
+      "color": "#74ACDF",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Philippines",
+      "capital": "Manila",
+      "correctPosition": {
+        "x": 752,
+        "y": 317
+      },
+      "gpsCoordinates": {
+        "latitude": 14.6042,
+        "longitude": 120.9822
+      },
+      "population": 13482468,
+      "color": "#0038A8",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Democratic Republic of the Congo",
+      "capital": "Kinshasa",
+      "correctPosition": {
+        "x": 488,
+        "y": 391
+      },
+      "gpsCoordinates": {
+        "latitude": -4.3276,
+        "longitude": 15.3136
+      },
+      "population": 13171256,
+      "color": "#007FFF",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Russia",
+      "capital": "Moskva (Moscow)",
+      "correctPosition": {
+        "x": 544,
+        "y": 115
+      },
+      "gpsCoordinates": {
+        "latitude": 55.755,
+        "longitude": 37.6218
+      },
+      "population": 12409738,
+      "color": "#0039A6",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "France",
+      "capital": "Paris",
+      "correctPosition": {
+        "x": 456,
+        "y": 158
+      },
+      "gpsCoordinates": {
+        "latitude": 48.8534,
+        "longitude": 2.3488
+      },
+      "population": 10900952,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Colombia",
+      "capital": "Bogotá",
+      "correctPosition": {
+        "x": 265,
+        "y": 356
+      },
+      "gpsCoordinates": {
+        "latitude": 4.6097,
+        "longitude": -74.0818
+      },
+      "population": 10574409,
+      "color": "#FCDD09",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Indonesia",
+      "capital": "Jakarta",
+      "correctPosition": {
+        "x": 717,
+        "y": 398
+      },
+      "gpsCoordinates": {
+        "latitude": -6.2118,
+        "longitude": 106.8416
+      },
+      "population": 10516927,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Peru",
+      "capital": "Lima",
+      "correctPosition": {
+        "x": 257,
+        "y": 421
+      },
+      "gpsCoordinates": {
+        "latitude": -12.0432,
+        "longitude": -77.0282
+      },
+      "population": 10390607,
+      "color": "#D91023",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Thailand",
+      "capital": "Krung Thep (Bangkok)",
+      "correctPosition": {
+        "x": 701,
+        "y": 321
+      },
+      "gpsCoordinates": {
+        "latitude": 13.722,
+        "longitude": 100.5252
+      },
+      "population": 10156316,
+      "color": "#ED1C24",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Republic of Korea",
+      "capital": "Seoul",
+      "correctPosition": {
+        "x": 767,
+        "y": 218
+      },
+      "gpsCoordinates": {
+        "latitude": 37.5683,
+        "longitude": 126.9778
+      },
+      "population": 9963497,
+      "color": "#C60C30",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "UK",
+      "capital": "London",
+      "correctPosition": {
+        "x": 450,
+        "y": 142
+      },
+      "gpsCoordinates": {
+        "latitude": 51.5085,
+        "longitude": -0.1257
+      },
+      "population": 9046485,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Iran (Islamic Republic of)",
+      "capital": "Tehran",
+      "correctPosition": {
+        "x": 579,
+        "y": 227
+      },
+      "gpsCoordinates": {
+        "latitude": 35.6944,
+        "longitude": 51.4215
+      },
+      "population": 8895947,
+      "color": "#239F40",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Angola",
+      "capital": "Luanda",
+      "correctPosition": {
+        "x": 483,
+        "y": 408
+      },
+      "gpsCoordinates": {
+        "latitude": -8.8368,
+        "longitude": 13.2343
+      },
+      "population": 7774200,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Malaysia",
+      "capital": "Kuala Lumpur",
+      "correctPosition": {
+        "x": 704,
+        "y": 362
+      },
+      "gpsCoordinates": {
+        "latitude": 3.1412,
+        "longitude": 101.6865
+      },
+      "population": 7563912,
+      "color": "#010066",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "China, Hong Kong SAR",
+      "capital": "Hong Kong",
+      "correctPosition": {
+        "x": 735,
+        "y": 286
+      },
+      "gpsCoordinates": {
+        "latitude": 22.2796,
+        "longitude": 114.1887
+      },
+      "population": 7428887,
+      "color": "#DE2910",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Saudi Arabia",
+      "capital": "Ar-Riyadh (Riyadh)",
+      "correctPosition": {
+        "x": 567,
+        "y": 276
+      },
+      "gpsCoordinates": {
+        "latitude": 24.6905,
+        "longitude": 46.7096
+      },
+      "population": 6906595,
+      "color": "#006C35",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Iraq",
+      "capital": "Baghdad",
+      "correctPosition": {
+        "x": 561,
+        "y": 238
+      },
+      "gpsCoordinates": {
+        "latitude": 33.3406,
+        "longitude": 44.4009
+      },
+      "population": 6811955,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Chile",
+      "capital": "Santiago",
+      "correctPosition": {
+        "x": 273,
+        "y": 510
+      },
+      "gpsCoordinates": {
+        "latitude": -33.4569,
+        "longitude": -70.6483
+      },
+      "population": 6680371,
+      "color": "#D52B1E",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Spain",
+      "capital": "Madrid",
+      "correctPosition": {
+        "x": 441,
+        "y": 204
+      },
+      "gpsCoordinates": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+      },
+      "population": 6497124,
+      "color": "#AA151B",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Singapore",
+      "capital": "Singapore",
+      "correctPosition": {
+        "x": 710,
+        "y": 369
+      },
+      "gpsCoordinates": {
+        "latitude": 1.2897,
+        "longitude": 103.8501
+      },
+      "population": 5791901,
+      "color": "#EE2436",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Sudan",
+      "capital": "Al-Khartum (Khartoum)",
+      "correctPosition": {
+        "x": 531,
+        "y": 314
+      },
+      "gpsCoordinates": {
+        "latitude": 15.5518,
+        "longitude": 32.5324
+      },
+      "population": 5534079,
+      "color": "#D21034",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "United States of America",
+      "capital": "Washington, D.C.",
+      "correctPosition": {
+        "x": 257,
+        "y": 212
+      },
+      "gpsCoordinates": {
+        "latitude": 38.8951,
+        "longitude": -77.0364
+      },
+      "population": 5206593,
+      "color": "#002868",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Turkey",
+      "capital": "Ankara",
+      "correctPosition": {
+        "x": 532,
+        "y": 207
+      },
+      "gpsCoordinates": {
+        "latitude": 39.9199,
+        "longitude": 32.8543
+      },
+      "population": 4919074,
+      "color": "#E30A17",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Brazil",
+      "capital": "Brasília",
+      "correctPosition": {
+        "x": 330,
+        "y": 435
+      },
+      "gpsCoordinates": {
+        "latitude": -15.7797,
+        "longitude": -47.9297
+      },
+      "population": 4469585,
+      "color": "#009739",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Ethiopia",
+      "capital": "Addis Ababa",
+      "correctPosition": {
+        "x": 547,
+        "y": 339
+      },
+      "gpsCoordinates": {
+        "latitude": 9.025,
+        "longitude": 38.7469
+      },
+      "population": 4399674,
+      "color": "#078930",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Kenya",
+      "capital": "Nairobi",
+      "correctPosition": {
+        "x": 542,
+        "y": 379
+      },
+      "gpsCoordinates": {
+        "latitude": -1.2833,
+        "longitude": 36.8167
+      },
+      "population": 4385853,
+      "color": "#BB0000",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Viet Nam",
+      "capital": "Hà Noi",
+      "correctPosition": {
+        "x": 715,
+        "y": 291
+      },
+      "gpsCoordinates": {
+        "latitude": 21.0245,
+        "longitude": 105.8412
+      },
+      "population": 4282738,
+      "color": "#DA020E",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Italy",
+      "capital": "Roma (Rome)",
+      "correctPosition": {
+        "x": 481,
+        "y": 197
+      },
+      "gpsCoordinates": {
+        "latitude": 41.8947,
+        "longitude": 12.4811
+      },
+      "population": 4209710,
+      "color": "#009246",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Afghanistan",
+      "capital": "Kabul",
+      "correctPosition": {
+        "x": 623,
+        "y": 233
+      },
+      "gpsCoordinates": {
+        "latitude": 34.5289,
+        "longitude": 69.1725
+      },
+      "population": 4011770,
+      "color": "#000000",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Cameroon",
+      "capital": "Yaoundé",
+      "correctPosition": {
+        "x": 479,
+        "y": 359
+      },
+      "gpsCoordinates": {
+        "latitude": 3.8667,
+        "longitude": 11.5167
+      },
+      "population": 3655656,
+      "color": "#007A5E",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Germany",
+      "capital": "Berlin",
+      "correctPosition": {
+        "x": 484,
+        "y": 136
+      },
+      "gpsCoordinates": {
+        "latitude": 52.5244,
+        "longitude": 13.4105
+      },
+      "population": 3552123,
+      "color": "#000000",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Paraguay",
+      "capital": "Asunción",
+      "correctPosition": {
+        "x": 306,
+        "y": 474
+      },
+      "gpsCoordinates": {
+        "latitude": -25.3007,
+        "longitude": -57.6359
+      },
+      "population": 3222199,
+      "color": "#D52B1E",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Dominican Republic",
+      "capital": "Santo Domingo",
+      "correctPosition": {
+        "x": 275,
+        "y": 302
+      },
+      "gpsCoordinates": {
+        "latitude": 18.4896,
+        "longitude": -69.9018
+      },
+      "population": 3172152,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Greece",
+      "capital": "Athínai (Athens)",
+      "correctPosition": {
+        "x": 509,
+        "y": 216
+      },
+      "gpsCoordinates": {
+        "latitude": 37.9534,
+        "longitude": 23.749
+      },
+      "population": 3155600,
+      "color": "#0D5EAF",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Madagascar",
+      "capital": "Antananarivo",
+      "correctPosition": {
+        "x": 569,
+        "y": 448
+      },
+      "gpsCoordinates": {
+        "latitude": -18.9137,
+        "longitude": 47.5361
+      },
+      "population": 3058387,
+      "color": "#FC3D32",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Dem. People's Republic of Korea",
+      "capital": "P'yongyang",
+      "correctPosition": {
+        "x": 764,
+        "y": 211
+      },
+      "gpsCoordinates": {
+        "latitude": 39.0339,
+        "longitude": 125.7543
+      },
+      "population": 3037862,
+      "color": "#024FA2",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Kuwait",
+      "capital": "Al Kuwayt (Kuwait City)",
+      "correctPosition": {
+        "x": 570,
+        "y": 256
+      },
+      "gpsCoordinates": {
+        "latitude": 29.3697,
+        "longitude": 47.9783
+      },
+      "population": 2989270,
+      "color": "#007A3D",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Uganda",
+      "capital": "Kampala",
+      "correctPosition": {
+        "x": 531,
+        "y": 373
+      },
+      "gpsCoordinates": {
+        "latitude": 0.3163,
+        "longitude": 32.5822
+      },
+      "population": 2986352,
+      "color": "#D90000",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Senegal",
+      "capital": "Dakar",
+      "correctPosition": {
+        "x": 406,
+        "y": 317
+      },
+      "gpsCoordinates": {
+        "latitude": 14.6937,
+        "longitude": -17.4441
+      },
+      "population": 2978419,
+      "color": "#00853F",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Ukraine",
+      "capital": "Kyiv (Kiev)",
+      "correctPosition": {
+        "x": 526,
+        "y": 149
+      },
+      "gpsCoordinates": {
+        "latitude": 50.4454,
+        "longitude": 30.5186
+      },
+      "population": 2956706,
+      "color": "#0057B7",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Venezuela (Bolivarian Republic of)",
+      "capital": "Caracas",
+      "correctPosition": {
+        "x": 283,
+        "y": 334
+      },
+      "gpsCoordinates": {
+        "latitude": 10.488,
+        "longitude": -66.8792
+      },
+      "population": 2934560,
+      "color": "#CF142B",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Portugal",
+      "capital": "Lisboa (Lisbon)",
+      "correctPosition": {
+        "x": 427,
+        "y": 213
+      },
+      "gpsCoordinates": {
+        "latitude": 38.7169,
+        "longitude": -9.1399
+      },
+      "population": 2927316,
+      "color": "#046A38",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Nigeria",
+      "capital": "Abuja",
+      "correctPosition": {
+        "x": 469,
+        "y": 339
+      },
+      "gpsCoordinates": {
+        "latitude": 9.0574,
+        "longitude": 7.4898
+      },
+      "population": 2918518,
+      "color": "#008751",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Guatemala",
+      "capital": "Ciudad de Guatemala (Guatemala City)",
+      "correctPosition": {
+        "x": 224,
+        "y": 317
+      },
+      "gpsCoordinates": {
+        "latitude": 14.6127,
+        "longitude": -90.5307
+      },
+      "population": 2851104,
+      "color": "#4997D0",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Yemen",
+      "capital": "Sana'a'",
+      "correctPosition": {
+        "x": 561,
+        "y": 314
+      },
+      "gpsCoordinates": {
+        "latitude": 15.3531,
+        "longitude": 44.2078
+      },
+      "population": 2779317,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Algeria",
+      "capital": "El Djazaïr  (Algiers)",
+      "correctPosition": {
+        "x": 458,
+        "y": 222
+      },
+      "gpsCoordinates": {
+        "latitude": 36.7525,
+        "longitude": 3.042
+      },
+      "population": 2693542,
+      "color": "#006233",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Haiti",
+      "capital": "Port-au-Prince",
+      "correctPosition": {
+        "x": 269,
+        "y": 302
+      },
+      "gpsCoordinates": {
+        "latitude": 18.5392,
+        "longitude": -72.335
+      },
+      "population": 2636763,
+      "color": "#00209F",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Burkina Faso",
+      "capital": "Ouagadougou",
+      "correctPosition": {
+        "x": 446,
+        "y": 326
+      },
+      "gpsCoordinates": {
+        "latitude": 12.3642,
+        "longitude": -1.5383
+      },
+      "population": 2531381,
+      "color": "#009639",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Zambia",
+      "capital": "Lusaka",
+      "correctPosition": {
+        "x": 521,
+        "y": 434
+      },
+      "gpsCoordinates": {
+        "latitude": -15.4134,
+        "longitude": 28.2771
+      },
+      "population": 2523844,
+      "color": "#198A00",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Uzbekistan",
+      "capital": "Tashkent",
+      "correctPosition": {
+        "x": 623,
+        "y": 200
+      },
+      "gpsCoordinates": {
+        "latitude": 41.2647,
+        "longitude": 69.2163
+      },
+      "population": 2463969,
+      "color": "#1EB53A",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Puerto Rico",
+      "capital": "San Juan",
+      "correctPosition": {
+        "x": 285,
+        "y": 302
+      },
+      "gpsCoordinates": {
+        "latitude": 18.4663,
+        "longitude": -66.1057
+      },
+      "population": 2454337,
+      "color": "#ED2939",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Mali",
+      "capital": "Bamako",
+      "correctPosition": {
+        "x": 430,
+        "y": 325
+      },
+      "gpsCoordinates": {
+        "latitude": 12.65,
+        "longitude": -8
+      },
+      "population": 2446749,
+      "color": "#14B53A",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Ghana",
+      "capital": "Accra",
+      "correctPosition": {
+        "x": 450,
+        "y": 353
+      },
+      "gpsCoordinates": {
+        "latitude": 5.556,
+        "longitude": -0.1969
+      },
+      "population": 2439389,
+      "color": "#006B3F",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Lebanon",
+      "capital": "Bayrut (Beirut)",
+      "correctPosition": {
+        "x": 539,
+        "y": 235
+      },
+      "gpsCoordinates": {
+        "latitude": 33.9,
+        "longitude": 35.4833
+      },
+      "population": 2385271,
+      "color": "#EE161F",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Syrian Arab Republic",
+      "capital": "Dimashq (Damascus)",
+      "correctPosition": {
+        "x": 541,
+        "y": 237
+      },
+      "gpsCoordinates": {
+        "latitude": 33.5086,
+        "longitude": 36.3084
+      },
+      "population": 2319545,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Tunisia",
+      "capital": "Tunis",
+      "correctPosition": {
+        "x": 475,
+        "y": 222
+      },
+      "gpsCoordinates": {
+        "latitude": 36.819,
+        "longitude": 10.1658
+      },
+      "population": 2290777,
+      "color": "#E70013",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Azerbaijan",
+      "capital": "Baku",
+      "correctPosition": {
+        "x": 575,
+        "y": 204
+      },
+      "gpsCoordinates": {
+        "latitude": 40.3777,
+        "longitude": 49.892
+      },
+      "population": 2285729,
+      "color": "#009639",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Congo",
+      "capital": "Brazzaville",
+      "correctPosition": {
+        "x": 488,
+        "y": 390
+      },
+      "gpsCoordinates": {
+        "latitude": -4.2658,
+        "longitude": 15.2832
+      },
+      "population": 2229693,
+      "color": "#009639",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Cuba",
+      "capital": "La Habana (Havana)",
+      "correctPosition": {
+        "x": 244,
+        "y": 283
+      },
+      "gpsCoordinates": {
+        "latitude": 23.1195,
+        "longitude": -82.3785
+      },
+      "population": 2136468,
+      "color": "#002A8F",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Somalia",
+      "capital": "Muqdisho (Mogadishu)",
+      "correctPosition": {
+        "x": 563,
+        "y": 366
+      },
+      "gpsCoordinates": {
+        "latitude": 2.0416,
+        "longitude": 45.3435
+      },
+      "population": 2081624,
+      "color": "#4189DD",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Jordan",
+      "capital": "Amman",
+      "correctPosition": {
+        "x": 540,
+        "y": 244
+      },
+      "gpsCoordinates": {
+        "latitude": 31.9552,
+        "longitude": 35.945
+      },
+      "population": 2064582,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Belgium",
+      "capital": "Bruxelles-Brussel",
+      "correctPosition": {
+        "x": 461,
+        "y": 147
+      },
+      "gpsCoordinates": {
+        "latitude": 50.8467,
+        "longitude": 4.3499
+      },
+      "population": 2049510,
+      "color": "#000000",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Belarus",
+      "capital": "Minsk",
+      "correctPosition": {
+        "x": 519,
+        "y": 127
+      },
+      "gpsCoordinates": {
+        "latitude": 53.9,
+        "longitude": 27.5667
+      },
+      "population": 2004672,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Cambodia",
+      "capital": "Phnum Pénh (Phnom Penh)",
+      "correctPosition": {
+        "x": 712,
+        "y": 329
+      },
+      "gpsCoordinates": {
+        "latitude": 11.5625,
+        "longitude": 104.916
+      },
+      "population": 1952329,
+      "color": "#032EA1",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Austria",
+      "capital": "Wien (Vienna)",
+      "correctPosition": {
+        "x": 491,
+        "y": 162
+      },
+      "gpsCoordinates": {
+        "latitude": 48.2064,
+        "longitude": 16.3707
+      },
+      "population": 1900547,
+      "color": "#ED2939",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Morocco",
+      "capital": "Rabat",
+      "correctPosition": {
+        "x": 433,
+        "y": 235
+      },
+      "gpsCoordinates": {
+        "latitude": 34.0133,
+        "longitude": -6.8326
+      },
+      "population": 1846661,
+      "color": "#C1272D",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Guinea",
+      "capital": "Conakry",
+      "correctPosition": {
+        "x": 416,
+        "y": 337
+      },
+      "gpsCoordinates": {
+        "latitude": 9.5716,
+        "longitude": -13.6476
+      },
+      "population": 1843121,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Ecuador",
+      "capital": "Quito",
+      "correctPosition": {
+        "x": 254,
+        "y": 375
+      },
+      "gpsCoordinates": {
+        "latitude": -0.2299,
+        "longitude": -78.525
+      },
+      "population": 1822397,
+      "color": "#FFDD00",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Romania",
+      "capital": "Bucuresti (Bucharest)",
+      "correctPosition": {
+        "x": 515,
+        "y": 183
+      },
+      "gpsCoordinates": {
+        "latitude": 44.4328,
+        "longitude": 26.1043
+      },
+      "population": 1821380,
+      "color": "#002B7F",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Panama",
+      "capital": "Ciudad de Panamá (Panama City)",
+      "correctPosition": {
+        "x": 251,
+        "y": 339
+      },
+      "gpsCoordinates": {
+        "latitude": 8.9958,
+        "longitude": -79.5196
+      },
+      "population": 1783490,
+      "color": "#DA020E",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Poland",
+      "capital": "Warszawa (Warsaw)",
+      "correctPosition": {
+        "x": 503,
+        "y": 138
+      },
+      "gpsCoordinates": {
+        "latitude": 52.2298,
+        "longitude": 21.0118
+      },
+      "population": 1767798,
+      "color": "#DC143C",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Hungary",
+      "capital": "Budapest",
+      "correctPosition": {
+        "x": 498,
+        "y": 166
+      },
+      "gpsCoordinates": {
+        "latitude": 47.498,
+        "longitude": 19.0399
+      },
+      "population": 1759497,
+      "color": "#CD212A",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Togo",
+      "capital": "Lomé",
+      "correctPosition": {
+        "x": 453,
+        "y": 350
+      },
+      "gpsCoordinates": {
+        "latitude": 6.1375,
+        "longitude": 1.2123
+      },
+      "population": 1745744,
+      "color": "#006A4E",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Uruguay",
+      "capital": "Montevideo",
+      "correctPosition": {
+        "x": 310,
+        "y": 517
+      },
+      "gpsCoordinates": {
+        "latitude": -34.8335,
+        "longitude": -56.1674
+      },
+      "population": 1736989,
+      "color": "#0038A8",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Sweden",
+      "capital": "Stockholm",
+      "correctPosition": {
+        "x": 495,
+        "y": 89
+      },
+      "gpsCoordinates": {
+        "latitude": 59.3326,
+        "longitude": 18.0649
+      },
+      "population": 1582968,
+      "color": "#006AA7",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Mongolia",
+      "capital": "Ulaanbaatar",
+      "correctPosition": {
+        "x": 717,
+        "y": 164
+      },
+      "gpsCoordinates": {
+        "latitude": 47.9077,
+        "longitude": 106.8832
+      },
+      "population": 1520381,
+      "color": "#D6001C",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Zimbabwe",
+      "capital": "Harare",
+      "correctPosition": {
+        "x": 528,
+        "y": 444
+      },
+      "gpsCoordinates": {
+        "latitude": -17.8294,
+        "longitude": 31.0539
+      },
+      "population": 1515016,
+      "color": "#319400",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Oman",
+      "capital": "Masqat (Muscat)",
+      "correctPosition": {
+        "x": 596,
+        "y": 281
+      },
+      "gpsCoordinates": {
+        "latitude": 23.6139,
+        "longitude": 58.5922
+      },
+      "population": 1446563,
+      "color": "#D4AF37",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "United Arab Emirates",
+      "capital": "Abu Zaby (Abu Dhabi)",
+      "correctPosition": {
+        "x": 586,
+        "y": 277
+      },
+      "gpsCoordinates": {
+        "latitude": 24.4648,
+        "longitude": 54.3618
+      },
+      "population": 1419699,
+      "color": "#00732F",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Liberia",
+      "capital": "Monrovia",
+      "correctPosition": {
+        "x": 423,
+        "y": 350
+      },
+      "gpsCoordinates": {
+        "latitude": 6.3005,
+        "longitude": -10.7969
+      },
+      "population": 1418300,
+      "color": "#BF0A30",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Serbia",
+      "capital": "Beograd (Belgrade)",
+      "correctPosition": {
+        "x": 501,
+        "y": 181
+      },
+      "gpsCoordinates": {
+        "latitude": 44.8176,
+        "longitude": 20.4633
+      },
+      "population": 1389351,
+      "color": "#C6363C",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Canada",
+      "capital": "Ottawa-Gatineau",
+      "correctPosition": {
+        "x": 261,
+        "y": 178
+      },
+      "gpsCoordinates": {
+        "latitude": 45.4166,
+        "longitude": -75.698
+      },
+      "population": 1363159,
+      "color": "#FF0000",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Honduras",
+      "capital": "Tegucigalpa",
+      "correctPosition": {
+        "x": 232,
+        "y": 319
+      },
+      "gpsCoordinates": {
+        "latitude": 14.0818,
+        "longitude": -87.2068
+      },
+      "population": 1363041,
+      "color": "#0073CF",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Costa Rica",
+      "capital": "San José",
+      "correctPosition": {
+        "x": 240,
+        "y": 336
+      },
+      "gpsCoordinates": {
+        "latitude": 9.9278,
+        "longitude": -84.0807
+      },
+      "population": 1357745,
+      "color": "#002B7F",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Nepal",
+      "capital": "Kathmandu",
+      "correctPosition": {
+        "x": 663,
+        "y": 263
+      },
+      "gpsCoordinates": {
+        "latitude": 27.7017,
+        "longitude": 85.3206
+      },
+      "population": 1329732,
+      "color": "#DC143C",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Chad",
+      "capital": "N'Djaména",
+      "correctPosition": {
+        "x": 488,
+        "y": 327
+      },
+      "gpsCoordinates": {
+        "latitude": 12.1067,
+        "longitude": 15.0444
+      },
+      "population": 1322679,
+      "color": "#002664",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Denmark",
+      "capital": "København (Copenhagen)",
+      "correctPosition": {
+        "x": 481,
+        "y": 116
+      },
+      "gpsCoordinates": {
+        "latitude": 55.6759,
+        "longitude": 12.5655
+      },
+      "population": 1320826,
+      "color": "#C8102E",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Czechia",
+      "capital": "Praha (Prague)",
+      "correctPosition": {
+        "x": 486,
+        "y": 151
+      },
+      "gpsCoordinates": {
+        "latitude": 50.088,
+        "longitude": 14.4208
+      },
+      "population": 1291552,
+      "color": "#11457E",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Finland",
+      "capital": "Helsinki",
+      "correctPosition": {
+        "x": 512,
+        "y": 83
+      },
+      "gpsCoordinates": {
+        "latitude": 60.1692,
+        "longitude": 24.9402
+      },
+      "population": 1279096,
+      "color": "#003580",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Bulgaria",
+      "capital": "Sofia",
+      "correctPosition": {
+        "x": 508,
+        "y": 192
+      },
+      "gpsCoordinates": {
+        "latitude": 42.6975,
+        "longitude": 23.3242
+      },
+      "population": 1272418,
+      "color": "#00966E",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Niger",
+      "capital": "Niamey",
+      "correctPosition": {
+        "x": 455,
+        "y": 322
+      },
+      "gpsCoordinates": {
+        "latitude": 13.5137,
+        "longitude": 2.1098
+      },
+      "population": 1213781,
+      "color": "#E05206",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Mauritania",
+      "capital": "Nouakchott",
+      "correctPosition": {
+        "x": 410,
+        "y": 303
+      },
+      "gpsCoordinates": {
+        "latitude": 18.0858,
+        "longitude": -15.9785
+      },
+      "population": 1205414,
+      "color": "#00A854",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Ireland",
+      "capital": "Dublin",
+      "correctPosition": {
+        "x": 434,
+        "y": 131
+      },
+      "gpsCoordinates": {
+        "latitude": 53.3331,
+        "longitude": -6.2489
+      },
+      "population": 1201426,
+      "color": "#009A49",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Libya",
+      "capital": "Tarabulus (Tripoli)",
+      "correctPosition": {
+        "x": 483,
+        "y": 240
+      },
+      "gpsCoordinates": {
+        "latitude": 32.8752,
+        "longitude": 13.1875
+      },
+      "population": 1157746,
+      "color": "#239E46",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Sierra Leone",
+      "capital": "Freetown",
+      "correctPosition": {
+        "x": 417,
+        "y": 341
+      },
+      "gpsCoordinates": {
+        "latitude": 8.484,
+        "longitude": -13.2299
+      },
+      "population": 1135949,
+      "color": "#1EB53A",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Netherlands",
+      "capital": "Amsterdam",
+      "correctPosition": {
+        "x": 462,
+        "y": 137
+      },
+      "gpsCoordinates": {
+        "latitude": 52.374,
+        "longitude": 4.8897
+      },
+      "population": 1131690,
+      "color": "#21468B",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "El Salvador",
+      "capital": "San Salvador",
+      "correctPosition": {
+        "x": 227,
+        "y": 321
+      },
+      "gpsCoordinates": {
+        "latitude": 13.6894,
+        "longitude": -89.1872
+      },
+      "population": 1106698,
+      "color": "#0F47AF",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Mozambique",
+      "capital": "Maputo",
+      "correctPosition": {
+        "x": 531,
+        "y": 477
+      },
+      "gpsCoordinates": {
+        "latitude": -25.9653,
+        "longitude": 32.5892
+      },
+      "population": 1101771,
+      "color": "#00A859",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Armenia",
+      "capital": "Yerevan",
+      "correctPosition": {
+        "x": 561,
+        "y": 205
+      },
+      "gpsCoordinates": {
+        "latitude": 40.182,
+        "longitude": 44.5146
+      },
+      "population": 1080324,
+      "color": "#D90012",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Georgia",
+      "capital": "Tbilisi",
+      "correctPosition": {
+        "x": 562,
+        "y": 198
+      },
+      "gpsCoordinates": {
+        "latitude": 41.6941,
+        "longitude": 44.8337
+      },
+      "population": 1077333,
+      "color": "#FFFFFF",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Kazakhstan",
+      "capital": "Astana",
+      "correctPosition": {
+        "x": 629,
+        "y": 145
+      },
+      "gpsCoordinates": {
+        "latitude": 51.1801,
+        "longitude": 71.446
+      },
+      "population": 1068113,
+      "color": "#00AFCA",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Pakistan",
+      "capital": "Islamabad",
+      "correctPosition": {
+        "x": 633,
+        "y": 236
+      },
+      "gpsCoordinates": {
+        "latitude": 33.7035,
+        "longitude": 73.0594
+      },
+      "population": 1061412,
+      "color": "#01411C",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Rwanda",
+      "capital": "Kigali",
+      "correctPosition": {
+        "x": 525,
+        "y": 381
+      },
+      "gpsCoordinates": {
+        "latitude": -1.9474,
+        "longitude": 30.0579
+      },
+      "population": 1057836,
+      "color": "#20603D",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Nicaragua",
+      "capital": "Managua",
+      "correctPosition": {
+        "x": 234,
+        "y": 327
+      },
+      "gpsCoordinates": {
+        "latitude": 12.1328,
+        "longitude": -86.2504
+      },
+      "population": 1047923,
+      "color": "#0067CE",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Malawi",
+      "capital": "Lilongwe",
+      "correctPosition": {
+        "x": 534,
+        "y": 428
+      },
+      "gpsCoordinates": {
+        "latitude": -13.9669,
+        "longitude": 33.7873
+      },
+      "population": 1029639,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Norway",
+      "capital": "Oslo",
+      "correctPosition": {
+        "x": 477,
+        "y": 85
+      },
+      "gpsCoordinates": {
+        "latitude": 59.9127,
+        "longitude": 10.7461
+      },
+      "population": 1012225,
+      "color": "#EF2B2D",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Kyrgyzstan",
+      "capital": "Bishkek",
+      "correctPosition": {
+        "x": 636,
+        "y": 191
+      },
+      "gpsCoordinates": {
+        "latitude": 42.87,
+        "longitude": 74.59
+      },
+      "population": 996319,
+      "color": "#E4002B",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Israel",
+      "capital": "Jerusalem",
+      "correctPosition": {
+        "x": 538,
+        "y": 245
+      },
+      "gpsCoordinates": {
+        "latitude": 31.769,
+        "longitude": 35.2163
+      },
+      "population": 907062,
+      "color": "#0038B8",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Burundi",
+      "capital": "Bujumbura",
+      "correctPosition": {
+        "x": 523,
+        "y": 387
+      },
+      "gpsCoordinates": {
+        "latitude": -3.3822,
+        "longitude": 29.3644
+      },
+      "population": 898968,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Eritrea",
+      "capital": "Asmara",
+      "correctPosition": {
+        "x": 547,
+        "y": 314
+      },
+      "gpsCoordinates": {
+        "latitude": 15.3333,
+        "longitude": 38.9333
+      },
+      "population": 895863,
+      "color": "#12AD2B",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Tajikistan",
+      "capital": "Dushanbe",
+      "correctPosition": {
+        "x": 622,
+        "y": 213
+      },
+      "gpsCoordinates": {
+        "latitude": 38.5358,
+        "longitude": 68.7791
+      },
+      "population": 872653,
+      "color": "#006600",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Central African Republic",
+      "capital": "Bangui",
+      "correctPosition": {
+        "x": 496,
+        "y": 357
+      },
+      "gpsCoordinates": {
+        "latitude": 4.3612,
+        "longitude": 18.555
+      },
+      "population": 850946,
+      "color": "#003082",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Gabon",
+      "capital": "Libreville",
+      "correctPosition": {
+        "x": 474,
+        "y": 372
+      },
+      "gpsCoordinates": {
+        "latitude": 0.3925,
+        "longitude": 9.4537
+      },
+      "population": 813489,
+      "color": "#009639",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Turkmenistan",
+      "capital": "Ashgabat",
+      "correctPosition": {
+        "x": 596,
+        "y": 216
+      },
+      "gpsCoordinates": {
+        "latitude": 37.95,
+        "longitude": 58.3833
+      },
+      "population": 810186,
+      "color": "#00B04F",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Croatia",
+      "capital": "Zagreb",
+      "correctPosition": {
+        "x": 490,
+        "y": 176
+      },
+      "gpsCoordinates": {
+        "latitude": 45.8144,
+        "longitude": 15.978
+      },
+      "population": 685587,
+      "color": "#171796",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Lao People's Democratic Republic",
+      "capital": "Vientiane",
+      "correctPosition": {
+        "x": 707,
+        "y": 304
+      },
+      "gpsCoordinates": {
+        "latitude": 17.9667,
+        "longitude": 102.6
+      },
+      "population": 664754,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Latvia",
+      "capital": "Riga",
+      "correctPosition": {
+        "x": 510,
+        "y": 107
+      },
+      "gpsCoordinates": {
+        "latitude": 56.946,
+        "longitude": 24.1059
+      },
+      "population": 637089,
+      "color": "#9E3039",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Qatar",
+      "capital": "Ad-Dawhah (Doha)",
+      "correctPosition": {
+        "x": 579,
+        "y": 274
+      },
+      "gpsCoordinates": {
+        "latitude": 25.2747,
+        "longitude": 51.5245
+      },
+      "population": 633401,
+      "color": "#8D1B3D",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "China, Macao SAR",
+      "capital": "Macao",
+      "correctPosition": {
+        "x": 734,
+        "y": 287
+      },
+      "gpsCoordinates": {
+        "latitude": 22.2006,
+        "longitude": 113.5461
+      },
+      "population": 632418,
+      "color": "#00785A",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Sri Lanka",
+      "capital": "Colombo",
+      "correctPosition": {
+        "x": 650,
+        "y": 347
+      },
+      "gpsCoordinates": {
+        "latitude": 6.9319,
+        "longitude": 79.8478
+      },
+      "population": 599821,
+      "color": "#FF7100",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Jamaica",
+      "capital": "Kingston",
+      "correctPosition": {
+        "x": 258,
+        "y": 304
+      },
+      "gpsCoordinates": {
+        "latitude": 17.997,
+        "longitude": -76.7936
+      },
+      "population": 589083,
+      "color": "#009639",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "TFYR Macedonia",
+      "capital": "Skopje",
+      "correctPosition": {
+        "x": 504,
+        "y": 196
+      },
+      "gpsCoordinates": {
+        "latitude": 42,
+        "longitude": 21.4333
+      },
+      "population": 584208,
+      "color": "#D20000",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Bahrain",
+      "capital": "Al-Manamah (Manama)",
+      "correctPosition": {
+        "x": 576,
+        "y": 270
+      },
+      "gpsCoordinates": {
+        "latitude": 26.2154,
+        "longitude": 50.5832
+      },
+      "population": 564631,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Djibouti",
+      "capital": "Djibouti",
+      "correctPosition": {
+        "x": 558,
+        "y": 329
+      },
+      "gpsCoordinates": {
+        "latitude": 11.5877,
+        "longitude": 43.1447
+      },
+      "population": 561564,
+      "color": "#6AB2DD",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Guinea-Bissau",
+      "capital": "Bissau",
+      "correctPosition": {
+        "x": 411,
+        "y": 328
+      },
+      "gpsCoordinates": {
+        "latitude": 11.8636,
+        "longitude": -15.5977
+      },
+      "population": 558399,
+      "color": "#FFCD00",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Trinidad and Tobago",
+      "capital": "Port of Spain",
+      "correctPosition": {
+        "x": 296,
+        "y": 333
+      },
+      "gpsCoordinates": {
+        "latitude": 10.6662,
+        "longitude": -61.5166
+      },
+      "population": 544417,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Lithuania",
+      "capital": "Vilnius",
+      "correctPosition": {
+        "x": 513,
+        "y": 122
+      },
+      "gpsCoordinates": {
+        "latitude": 54.6892,
+        "longitude": 25.2798
+      },
+      "population": 536055,
+      "color": "#FDB900",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Republic of Moldova",
+      "capital": "Chişinău",
+      "correctPosition": {
+        "x": 522,
+        "y": 169
+      },
+      "gpsCoordinates": {
+        "latitude": 47.0056,
+        "longitude": 28.8575
+      },
+      "population": 509707,
+      "color": "#0033A0",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Myanmar",
+      "capital": "Nay Pyi Taw",
+      "correctPosition": {
+        "x": 690,
+        "y": 297
+      },
+      "gpsCoordinates": {
+        "latitude": 19.745,
+        "longitude": 96.1297
+      },
+      "population": 500218,
+      "color": "#FECB00",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Albania",
+      "capital": "Tiranë (Tirana)",
+      "correctPosition": {
+        "x": 500,
+        "y": 199
+      },
+      "gpsCoordinates": {
+        "latitude": 41.3275,
+        "longitude": 19.8189
+      },
+      "population": 475577,
+      "color": "#E4002B",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Australia",
+      "capital": "Canberra",
+      "correctPosition": {
+        "x": 823,
+        "y": 519
+      },
+      "gpsCoordinates": {
+        "latitude": -35.2835,
+        "longitude": 149.1281
+      },
+      "population": 447692,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Gambia",
+      "capital": "Banjul",
+      "correctPosition": {
+        "x": 408,
+        "y": 322
+      },
+      "gpsCoordinates": {
+        "latitude": 13.4531,
+        "longitude": -16.6794
+      },
+      "population": 437161,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Estonia",
+      "capital": "Tallinn",
+      "correctPosition": {
+        "x": 512,
+        "y": 89
+      },
+      "gpsCoordinates": {
+        "latitude": 59.437,
+        "longitude": 24.7535
+      },
+      "population": 437027,
+      "color": "#0072CE",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Slovakia",
+      "capital": "Bratislava",
+      "correctPosition": {
+        "x": 493,
+        "y": 163
+      },
+      "gpsCoordinates": {
+        "latitude": 48.1482,
+        "longitude": 17.1067
+      },
+      "population": 429920,
+      "color": "#EE1C25",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Switzerland",
+      "capital": "Bern",
+      "correctPosition": {
+        "x": 469,
+        "y": 169
+      },
+      "gpsCoordinates": {
+        "latitude": 46.9481,
+        "longitude": 7.4474
+      },
+      "population": 422153,
+      "color": "#DA020E",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "New Zealand",
+      "capital": "Wellington",
+      "correctPosition": {
+        "x": 887,
+        "y": 548
+      },
+      "gpsCoordinates": {
+        "latitude": -41.2866,
+        "longitude": 174.7756
+      },
+      "population": 411346,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Namibia",
+      "capital": "Windhoek",
+      "correctPosition": {
+        "x": 493,
+        "y": 463
+      },
+      "gpsCoordinates": {
+        "latitude": -22.5594,
+        "longitude": 17.0832
+      },
+      "population": 404280,
+      "color": "#003580",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "South Sudan",
+      "capital": "Juba",
+      "correctPosition": {
+        "x": 529,
+        "y": 355
+      },
+      "gpsCoordinates": {
+        "latitude": 4.8517,
+        "longitude": 31.5825
+      },
+      "population": 368914,
+      "color": "#078930",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Papua New Guinea",
+      "capital": "Port Moresby",
+      "correctPosition": {
+        "x": 818,
+        "y": 410
+      },
+      "gpsCoordinates": {
+        "latitude": -9.4431,
+        "longitude": 147.1797
+      },
+      "population": 366862,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "capital": "Sarajevo",
+      "correctPosition": {
+        "x": 496,
+        "y": 186
+      },
+      "gpsCoordinates": {
+        "latitude": 43.8486,
+        "longitude": 18.3564
+      },
+      "population": 342577,
+      "color": "#002395",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Equatorial Guinea",
+      "capital": "Malabo",
+      "correctPosition": {
+        "x": 472,
+        "y": 360
+      },
+      "gpsCoordinates": {
+        "latitude": 3.75,
+        "longitude": 8.7833
+      },
+      "population": 296770,
+      "color": "#3E9A00",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Slovenia",
+      "capital": "Ljubljana",
+      "correctPosition": {
+        "x": 486,
+        "y": 174
+      },
+      "gpsCoordinates": {
+        "latitude": 46.0511,
+        "longitude": 14.5051
+      },
+      "population": 286491,
+      "color": "#005DA4",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Timor-Leste",
+      "capital": "Dili",
+      "correctPosition": {
+        "x": 764,
+        "y": 407
+      },
+      "gpsCoordinates": {
+        "latitude": -8.5601,
+        "longitude": 125.5668
+      },
+      "population": 281135,
+      "color": "#DC143C",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Bahamas",
+      "capital": "Nassau",
+      "correctPosition": {
+        "x": 257,
+        "y": 275
+      },
+      "gpsCoordinates": {
+        "latitude": 25.0582,
+        "longitude": -77.3431
+      },
+      "population": 279668,
+      "color": "#00778B",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "State of Palestine",
+      "capital": "Al-Quds[East Jerusalem]",
+      "correctPosition": {
+        "x": 538,
+        "y": 245
+      },
+      "gpsCoordinates": {
+        "latitude": 31.7834,
+        "longitude": 35.2339
+      },
+      "population": 275086,
+      "color": "#007A3D",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Cyprus",
+      "capital": "Lefkosia (Nicosia)",
+      "correctPosition": {
+        "x": 533,
+        "y": 230
+      },
+      "gpsCoordinates": {
+        "latitude": 35.1595,
+        "longitude": 33.3669
+      },
+      "population": 269469,
+      "color": "#D57800",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Botswana",
+      "capital": "Gaborone",
+      "correctPosition": {
+        "x": 515,
+        "y": 472
+      },
+      "gpsCoordinates": {
+        "latitude": -24.6545,
+        "longitude": 25.9086
+      },
+      "population": 269338,
+      "color": "#6EB5FF",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "United Republic of Tanzania",
+      "capital": "Dodoma",
+      "correctPosition": {
+        "x": 539,
+        "y": 398
+      },
+      "gpsCoordinates": {
+        "latitude": -6.1722,
+        "longitude": 35.7395
+      },
+      "population": 261645,
+      "color": "#1EB53A",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Suriname",
+      "capital": "Paramaribo",
+      "correctPosition": {
+        "x": 312,
+        "y": 351
+      },
+      "gpsCoordinates": {
+        "latitude": 5.8664,
+        "longitude": -55.1668
+      },
+      "population": 239457,
+      "color": "#377E3F",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Western Sahara",
+      "capital": "El Aaiún",
+      "correctPosition": {
+        "x": 417,
+        "y": 266
+      },
+      "gpsCoordinates": {
+        "latitude": 27.1532,
+        "longitude": -13.2014
+      },
+      "population": 232388,
+      "color": "#C4111B",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Iceland",
+      "capital": "Reykjavík",
+      "correctPosition": {
+        "x": 395,
+        "y": 50
+      },
+      "gpsCoordinates": {
+        "latitude": 64.1355,
+        "longitude": -21.8954
+      },
+      "population": 216364,
+      "color": "#02529C",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Malta",
+      "capital": "Valletta",
+      "correctPosition": {
+        "x": 486,
+        "y": 226
+      },
+      "gpsCoordinates": {
+        "latitude": 35.8997,
+        "longitude": 14.5147
+      },
+      "population": 212768,
+      "color": "#CF142B",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Bhutan",
+      "capital": "Thimphu",
+      "correctPosition": {
+        "x": 674,
+        "y": 264
+      },
+      "gpsCoordinates": {
+        "latitude": 27.4661,
+        "longitude": 89.6419
+      },
+      "population": 203297,
+      "color": "#FFD520",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Lesotho",
+      "capital": "Maseru",
+      "correctPosition": {
+        "x": 519,
+        "y": 492
+      },
+      "gpsCoordinates": {
+        "latitude": -29.3167,
+        "longitude": 27.4833
+      },
+      "population": 201851,
+      "color": "#00209F",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "New Caledonia",
+      "capital": "Nouméa",
+      "correctPosition": {
+        "x": 866,
+        "y": 462
+      },
+      "gpsCoordinates": {
+        "latitude": -22.2763,
+        "longitude": 166.4572
+      },
+      "population": 197787,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Fiji",
+      "capital": "Suva",
+      "correctPosition": {
+        "x": 896,
+        "y": 445
+      },
+      "gpsCoordinates": {
+        "latitude": -18.1416,
+        "longitude": 178.4415
+      },
+      "population": 178339,
+      "color": "#68BFE5",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Montenegro",
+      "capital": "Podgorica",
+      "correctPosition": {
+        "x": 498,
+        "y": 194
+      },
+      "gpsCoordinates": {
+        "latitude": 42.4411,
+        "longitude": 19.2636
+      },
+      "population": 177177,
+      "color": "#C40308",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Maldives",
+      "capital": "Male",
+      "correctPosition": {
+        "x": 634,
+        "y": 358
+      },
+      "gpsCoordinates": {
+        "latitude": 4.1748,
+        "longitude": 73.5089
+      },
+      "population": 176851,
+      "color": "#D21034",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Cabo Verde",
+      "capital": "Praia",
+      "correctPosition": {
+        "x": 391,
+        "y": 316
+      },
+      "gpsCoordinates": {
+        "latitude": 14.9215,
+        "longitude": -23.5087
+      },
+      "population": 167504,
+      "color": "#003893",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Mauritius",
+      "capital": "Port Louis",
+      "correctPosition": {
+        "x": 594,
+        "y": 453
+      },
+      "gpsCoordinates": {
+        "latitude": -20.1619,
+        "longitude": 57.4989
+      },
+      "population": 149365,
+      "color": "#EA010F",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Réunion",
+      "capital": "Saint-Denis",
+      "correctPosition": {
+        "x": 589,
+        "y": 456
+      },
+      "gpsCoordinates": {
+        "latitude": -20.8823,
+        "longitude": 55.4504
+      },
+      "population": 147209,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Guam",
+      "capital": "Hagåtña",
+      "correctPosition": {
+        "x": 812,
+        "y": 322
+      },
+      "gpsCoordinates": {
+        "latitude": 13.4757,
+        "longitude": 144.7489
+      },
+      "population": 146905,
+      "color": "#002868",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Curaçao",
+      "capital": "Willemstad",
+      "correctPosition": {
+        "x": 278,
+        "y": 327
+      },
+      "gpsCoordinates": {
+        "latitude": 12.1084,
+        "longitude": -68.9335
+      },
+      "population": 144037,
+      "color": "#002E6B",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "French Polynesia",
+      "capital": "Papeete",
+      "correctPosition": {
+        "x": 76,
+        "y": 442
+      },
+      "gpsCoordinates": {
+        "latitude": -17.5333,
+        "longitude": -149.5667
+      },
+      "population": 136005,
+      "color": "#ED2939",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Luxembourg",
+      "capital": "Luxembourg",
+      "correctPosition": {
+        "x": 465,
+        "y": 154
+      },
+      "gpsCoordinates": {
+        "latitude": 49.6117,
+        "longitude": 6.13
+      },
+      "population": 119752,
+      "color": "#ED2939",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Guyana",
+      "capital": "Georgetown",
+      "correctPosition": {
+        "x": 305,
+        "y": 348
+      },
+      "gpsCoordinates": {
+        "latitude": 6.8045,
+        "longitude": -58.1553
+      },
+      "population": 109934,
+      "color": "#009E49",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Barbados",
+      "capital": "Bridgetown",
+      "correctPosition": {
+        "x": 301,
+        "y": 323
+      },
+      "gpsCoordinates": {
+        "latitude": 13.1,
+        "longitude": -59.6167
+      },
+      "population": 89201,
+      "color": "#FFC72C",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Solomon Islands",
+      "capital": "Honiara",
+      "correctPosition": {
+        "x": 850,
+        "y": 410
+      },
+      "gpsCoordinates": {
+        "latitude": -9.4333,
+        "longitude": 159.95
+      },
+      "population": 81801,
+      "color": "#0052CC",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Sao Tome and Principe",
+      "capital": "São Tomé",
+      "correctPosition": {
+        "x": 467,
+        "y": 373
+      },
+      "gpsCoordinates": {
+        "latitude": 0.3365,
+        "longitude": 6.7273
+      },
+      "population": 80099,
+      "color": "#12AD2B",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Martinique",
+      "capital": "Fort-de-France",
+      "correctPosition": {
+        "x": 297,
+        "y": 317
+      },
+      "gpsCoordinates": {
+        "latitude": 14.6089,
+        "longitude": -61.0733
+      },
+      "population": 79361,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Swaziland",
+      "capital": "Mbabane",
+      "correctPosition": {
+        "x": 528,
+        "y": 479
+      },
+      "gpsCoordinates": {
+        "latitude": -26.3167,
+        "longitude": 31.1333
+      },
+      "population": 68010,
+      "color": "#3C5EC1",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Kiribati",
+      "capital": "Tarawa",
+      "correctPosition": {
+        "x": 882,
+        "y": 369
+      },
+      "gpsCoordinates": {
+        "latitude": 1.3272,
+        "longitude": 172.9813
+      },
+      "population": 64011,
+      "color": "#E70011",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Comoros",
+      "capital": "Moroni",
+      "correctPosition": {
+        "x": 558,
+        "y": 419
+      },
+      "gpsCoordinates": {
+        "latitude": -11.7022,
+        "longitude": 43.2551
+      },
+      "population": 62351,
+      "color": "#3D8E33",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Guadeloupe",
+      "capital": "Basse-Terre",
+      "correctPosition": {
+        "x": 296,
+        "y": 312
+      },
+      "gpsCoordinates": {
+        "latitude": 15.9985,
+        "longitude": -61.7255
+      },
+      "population": 58397,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "French Guiana",
+      "capital": "Cayenne",
+      "correctPosition": {
+        "x": 319,
+        "y": 355
+      },
+      "gpsCoordinates": {
+        "latitude": 4.9333,
+        "longitude": -52.3333
+      },
+      "population": 57506,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Vanuatu",
+      "capital": "Port Vila",
+      "correctPosition": {
+        "x": 871,
+        "y": 443
+      },
+      "gpsCoordinates": {
+        "latitude": -17.7338,
+        "longitude": 168.3219
+      },
+      "population": 52690,
+      "color": "#009543",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "United States Virgin Islands",
+      "capital": "Charlotte Amalie",
+      "correctPosition": {
+        "x": 288,
+        "y": 302
+      },
+      "gpsCoordinates": {
+        "latitude": 18.3419,
+        "longitude": -64.9307
+      },
+      "population": 52322,
+      "color": "#002868",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Northern Mariana Islands",
+      "capital": "Saipan",
+      "correctPosition": {
+        "x": 814,
+        "y": 315
+      },
+      "gpsCoordinates": {
+        "latitude": 15.2123,
+        "longitude": 145.7545
+      },
+      "population": 50568,
+      "color": "#002868",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "American Samoa",
+      "capital": "Pago Pago",
+      "correctPosition": {
+        "x": 23,
+        "y": 429
+      },
+      "gpsCoordinates": {
+        "latitude": -14.2781,
+        "longitude": -170.7025
+      },
+      "population": 48526,
+      "color": "#002868",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Brunei Darussalam",
+      "capital": "Bandar Seri Begawan",
+      "correctPosition": {
+        "x": 737,
+        "y": 355
+      },
+      "gpsCoordinates": {
+        "latitude": 4.9403,
+        "longitude": 114.9481
+      },
+      "population": 40781,
+      "color": "#FFCD00",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Sint Maarten (Dutch part)",
+      "capital": "Philipsburg",
+      "correctPosition": {
+        "x": 292,
+        "y": 304
+      },
+      "gpsCoordinates": {
+        "latitude": 18.026,
+        "longitude": -63.0458
+      },
+      "population": 40552,
+      "color": "#21468B",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Grenada",
+      "capital": "St.George's",
+      "correctPosition": {
+        "x": 296,
+        "y": 327
+      },
+      "gpsCoordinates": {
+        "latitude": 12.0564,
+        "longitude": -61.7485
+      },
+      "population": 39297,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Monaco",
+      "capital": "Monaco",
+      "correctPosition": {
+        "x": 469,
+        "y": 187
+      },
+      "gpsCoordinates": {
+        "latitude": 43.7333,
+        "longitude": 7.4167
+      },
+      "population": 38897,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Samoa",
+      "capital": "Apia",
+      "correctPosition": {
+        "x": 21,
+        "y": 428
+      },
+      "gpsCoordinates": {
+        "latitude": -13.8333,
+        "longitude": -171.7667
+      },
+      "population": 36066,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Cayman Islands",
+      "capital": "George Town",
+      "correctPosition": {
+        "x": 247,
+        "y": 299
+      },
+      "gpsCoordinates": {
+        "latitude": 19.2866,
+        "longitude": -81.3744
+      },
+      "population": 34875,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Gibraltar",
+      "capital": "Gibraltar",
+      "correctPosition": {
+        "x": 437,
+        "y": 225
+      },
+      "gpsCoordinates": {
+        "latitude": 36.1447,
+        "longitude": -5.3526
+      },
+      "population": 34733,
+      "color": "#AA151B",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Channel Islands",
+      "capital": "St. Helier",
+      "correctPosition": {
+        "x": 445,
+        "y": 156
+      },
+      "gpsCoordinates": {
+        "latitude": 49.188,
+        "longitude": -2.1049
+      },
+      "population": 34386,
+      "color": "#E8112D",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Marshall Islands",
+      "capital": "Majuro",
+      "correctPosition": {
+        "x": 878,
+        "y": 347
+      },
+      "gpsCoordinates": {
+        "latitude": 7.0897,
+        "longitude": 171.3803
+      },
+      "population": 30661,
+      "color": "#003893",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Aruba",
+      "capital": "Oranjestad",
+      "correctPosition": {
+        "x": 275,
+        "y": 326
+      },
+      "gpsCoordinates": {
+        "latitude": 12.524,
+        "longitude": -70.027
+      },
+      "population": 29877,
+      "color": "#418FDE",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Seychelles",
+      "capital": "Victoria",
+      "correctPosition": {
+        "x": 589,
+        "y": 392
+      },
+      "gpsCoordinates": {
+        "latitude": -4.6167,
+        "longitude": 55.45
+      },
+      "population": 28091,
+      "color": "#003F87",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Isle of Man",
+      "capital": "Douglas",
+      "correctPosition": {
+        "x": 439,
+        "y": 126
+      },
+      "gpsCoordinates": {
+        "latitude": 54.15,
+        "longitude": -4.4833
+      },
+      "population": 27171,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Saint Vincent and the Grenadines",
+      "capital": "Kingstown",
+      "correctPosition": {
+        "x": 297,
+        "y": 323
+      },
+      "gpsCoordinates": {
+        "latitude": 13.1587,
+        "longitude": -61.2248
+      },
+      "population": 26636,
+      "color": "#0072C6",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Belize",
+      "capital": "Belmopan",
+      "correctPosition": {
+        "x": 228,
+        "y": 307
+      },
+      "gpsCoordinates": {
+        "latitude": 17.25,
+        "longitude": -88.7667
+      },
+      "population": 22964,
+      "color": "#003F87",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Tonga",
+      "capital": "Nuku'alofa",
+      "correctPosition": {
+        "x": 12,
+        "y": 457
+      },
+      "gpsCoordinates": {
+        "latitude": -21.1394,
+        "longitude": -175.2032
+      },
+      "population": 22904,
+      "color": "#C8102E",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Andorra",
+      "capital": "Andorra la Vella",
+      "correctPosition": {
+        "x": 454,
+        "y": 193
+      },
+      "gpsCoordinates": {
+        "latitude": 42.5078,
+        "longitude": 1.5211
+      },
+      "population": 22614,
+      "color": "#10069F",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Saint Lucia",
+      "capital": "Castries",
+      "correctPosition": {
+        "x": 298,
+        "y": 320
+      },
+      "gpsCoordinates": {
+        "latitude": 14.006,
+        "longitude": -60.991
+      },
+      "population": 22258,
+      "color": "#65C5FF",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Faeroe Islands",
+      "capital": "Tórshavn",
+      "correctPosition": {
+        "x": 433,
+        "y": 68
+      },
+      "gpsCoordinates": {
+        "latitude": 62.0097,
+        "longitude": -6.7716
+      },
+      "population": 20817,
+      "color": "#ED2939",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Antigua and Barbuda",
+      "capital": "St. John's",
+      "correctPosition": {
+        "x": 295,
+        "y": 307
+      },
+      "gpsCoordinates": {
+        "latitude": 17.1172,
+        "longitude": -61.8457
+      },
+      "population": 20764,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Greenland",
+      "capital": "Nuuk (Godthåb)",
+      "correctPosition": {
+        "x": 321,
+        "y": 50
+      },
+      "gpsCoordinates": {
+        "latitude": 64.1835,
+        "longitude": -51.7216
+      },
+      "population": 18406,
+      "color": "#C8102E",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "British Virgin Islands",
+      "capital": "Road Town",
+      "correctPosition": {
+        "x": 288,
+        "y": 302
+      },
+      "gpsCoordinates": {
+        "latitude": 18.4167,
+        "longitude": -64.6167
+      },
+      "population": 15137,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    },
+    {
+      "name": "Dominica",
+      "capital": "Roseau",
+      "correctPosition": {
+        "x": 297,
+        "y": 315
+      },
+      "gpsCoordinates": {
+        "latitude": 15.3017,
+        "longitude": -61.3881
+      },
+      "population": 14942,
+      "color": "#006B3F",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Saint Kitts and Nevis",
+      "capital": "Basseterre",
+      "correctPosition": {
+        "x": 293,
+        "y": 307
+      },
+      "gpsCoordinates": {
+        "latitude": 17.2948,
+        "longitude": -62.7261
+      },
+      "population": 14434,
+      "color": "#009639",
+      "defaultPosition": {
+        "x": 120,
+        "y": 50
+      }
+    },
+    {
+      "name": "Cook Islands",
+      "capital": "Rarotonga",
+      "correctPosition": {
+        "x": 51,
+        "y": 457
+      },
+      "gpsCoordinates": {
+        "latitude": -21.23,
+        "longitude": -159.76
+      },
+      "population": 13067,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Palau",
+      "capital": "Koror",
+      "correctPosition": {
+        "x": 786,
+        "y": 346
+      },
+      "gpsCoordinates": {
+        "latitude": 7.3426,
+        "longitude": 134.4789
+      },
+      "population": 11410,
+      "color": "#4AADD6",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Caribbean Netherlands",
+      "capital": "Kralendijk",
+      "correctPosition": {
+        "x": 279,
+        "y": 327
+      },
+      "gpsCoordinates": {
+        "latitude": 12.15,
+        "longitude": -68.2667
+      },
+      "population": 11313,
+      "color": "#21468B",
+      "defaultPosition": {
+        "x": 260,
+        "y": 190
+      }
+    },
+    {
+      "name": "Nauru",
+      "capital": "Nauru",
+      "correctPosition": {
+        "x": 867,
+        "y": 376
+      },
+      "gpsCoordinates": {
+        "latitude": -0.5308,
+        "longitude": 166.9112
+      },
+      "population": 11312,
+      "color": "#002B7F",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Bermuda",
+      "capital": "Hamilton",
+      "correctPosition": {
+        "x": 288,
+        "y": 243
+      },
+      "gpsCoordinates": {
+        "latitude": 32.2915,
+        "longitude": -64.778
+      },
+      "population": 10073,
+      "color": "#CE1126",
+      "defaultPosition": {
+        "x": 120,
+        "y": 190
+      }
+    },
+    {
+      "name": "Tuvalu",
+      "capital": "Funafuti",
+      "correctPosition": {
+        "x": 898,
+        "y": 407
+      },
+      "gpsCoordinates": {
+        "latitude": -8.5189,
+        "longitude": 179.1991
+      },
+      "population": 7042,
+      "color": "#6797D6",
+      "defaultPosition": {
+        "x": 50,
+        "y": 120
+      }
+    },
+    {
+      "name": "Micronesia (Fed. States of)",
+      "capital": "Palikir",
+      "correctPosition": {
+        "x": 845,
+        "y": 347
+      },
+      "gpsCoordinates": {
+        "latitude": 6.9174,
+        "longitude": 158.1588
+      },
+      "population": 6996,
+      "color": "#6797D6",
+      "defaultPosition": {
+        "x": 190,
+        "y": 190
+      }
+    },
+    {
+      "name": "Mayotte",
+      "capital": "Mamoudzou",
+      "correctPosition": {
+        "x": 563,
+        "y": 423
+      },
+      "gpsCoordinates": {
+        "latitude": -12.7794,
+        "longitude": 45.2272
+      },
+      "population": 6180,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 50,
+        "y": 190
+      }
+    },
+    {
+      "name": "Saint Pierre and Miquelon",
+      "capital": "Saint-Pierre",
+      "correctPosition": {
+        "x": 310,
+        "y": 170
+      },
+      "gpsCoordinates": {
+        "latitude": 46.7738,
+        "longitude": -56.1815
+      },
+      "population": 5723,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Liechtenstein",
+      "capital": "Vaduz",
+      "correctPosition": {
+        "x": 474,
+        "y": 168
+      },
+      "gpsCoordinates": {
+        "latitude": 47.1415,
+        "longitude": 9.5215
+      },
+      "population": 5470,
+      "color": "#002780",
+      "defaultPosition": {
+        "x": 260,
+        "y": 120
+      }
+    },
+    {
+      "name": "Turks and Caicos Islands",
+      "capital": "Cockburn Town",
+      "correctPosition": {
+        "x": 272,
+        "y": 290
+      },
+      "gpsCoordinates": {
+        "latitude": 21.4612,
+        "longitude": -71.1419
+      },
+      "population": 5447,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "San Marino",
+      "capital": "San Marino",
+      "correctPosition": {
+        "x": 481,
+        "y": 186
+      },
+      "gpsCoordinates": {
+        "latitude": 43.9333,
+        "longitude": 12.45
+      },
+      "population": 4465,
+      "color": "#5EB3F5",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Anguilla",
+      "capital": "The Valley",
+      "correctPosition": {
+        "x": 292,
+        "y": 303
+      },
+      "gpsCoordinates": {
+        "latitude": 18.217,
+        "longitude": -63.0578
+      },
+      "population": 1402,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 190,
+        "y": 120
+      }
+    },
+    {
+      "name": "Wallis and Futuna Islands",
+      "capital": "Matu-Utu",
+      "correctPosition": {
+        "x": 10,
+        "y": 425
+      },
+      "gpsCoordinates": {
+        "latitude": -13.2816,
+        "longitude": -176.1745
+      },
+      "population": 1025,
+      "color": "#0055A4",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Holy See",
+      "capital": "Vatican City",
+      "correctPosition": {
+        "x": 481,
+        "y": 196
+      },
+      "gpsCoordinates": {
+        "latitude": 41.9024,
+        "longitude": 12.4533
+      },
+      "population": 801,
+      "color": "#FFDF00",
+      "defaultPosition": {
+        "x": 120,
+        "y": 120
+      }
+    },
+    {
+      "name": "Niue",
+      "capital": "Alofi",
+      "correctPosition": {
+        "x": 25,
+        "y": 449
+      },
+      "gpsCoordinates": {
+        "latitude": -19.0585,
+        "longitude": -169.9213
+      },
+      "population": 727,
+      "color": "#FEDD00",
+      "defaultPosition": {
+        "x": 260,
+        "y": 50
+      }
+    },
+    {
+      "name": "Saint Helena",
+      "capital": "Jamestown",
+      "correctPosition": {
+        "x": 436,
+        "y": 436
+      },
+      "gpsCoordinates": {
+        "latitude": -15.9387,
+        "longitude": -5.7168
+      },
+      "population": 603,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "name": "Montserrat",
+      "capital": "Brades Estate",
+      "correctPosition": {
+        "x": 294,
+        "y": 309
+      },
+      "gpsCoordinates": {
+        "latitude": 16.7918,
+        "longitude": -62.2106
+      },
+      "population": 472,
+      "color": "#012169",
+      "defaultPosition": {
+        "x": 190,
+        "y": 50
+      }
+    }
+  ]
+}
