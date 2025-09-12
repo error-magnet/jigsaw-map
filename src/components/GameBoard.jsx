@@ -455,7 +455,9 @@ const GameBoard = () => {
                       display: 'inline-block',
                       minWidth: '40px',
                       textAlign: 'center',
-                      zIndex: 1000
+                      zIndex: 1000,
+                      transform: `scale(${1/zoom})`, // Counter the zoom scale
+                      transformOrigin: 'top left' // Keep position consistent
                     }}
                   >
                     {country.name}

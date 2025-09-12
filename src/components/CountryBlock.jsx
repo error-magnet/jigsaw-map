@@ -210,7 +210,9 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
           left: isPlaced ? (position?.x || 0) : 'auto',
           top: isPlaced ? (position?.y || 0) : 'auto',
           cursor: 'grab',
-          opacity: (isDragging && !isPlaced) ? 0.5 : 1
+          opacity: (isDragging && !isPlaced) ? 0.5 : 1,
+          transform: isPlaced ? `scale(${1/zoom})` : 'none', // Counter the zoom scale
+          transformOrigin: 'top left' // Keep position consistent
         }}
         onMouseDown={handleStart}
         onTouchStart={handleStart}
