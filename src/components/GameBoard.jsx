@@ -24,6 +24,17 @@ const GameBoard = () => {
       setInitialPanSet(true);
     }
   }, [isMobile, initialPanSet, handlePan]);
+
+  // Hide instructions overlay after 2 seconds
+  useEffect(() => {
+    if (showInstructionsOverlay) {
+      const timer = setTimeout(() => {
+        setShowInstructionsOverlay(false);
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [showInstructionsOverlay]);
   const [isPanning, setIsPanning] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [lastTouchDistance, setLastTouchDistance] = useState(null);
@@ -52,6 +63,7 @@ const GameBoard = () => {
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [showCountriesModal, setShowCountriesModal] = useState(false);
   const [currentRandomCountry, setCurrentRandomCountry] = useState(null);
+  const [showInstructionsOverlay, setShowInstructionsOverlay] = useState(true);
 
   const [countryScores, setCountryScores] = useState({});
   const [confettiCountry, setConfettiCountry] = useState(null);
@@ -683,6 +695,15 @@ const GameBoard = () => {
                 });
               })()}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Instructions Overlay */}
+      {showInstructionsOverlay && (
+        <div className="instructions-overlay">
+          <div className="instructions-content">
+            <p>3 countries are pre-populated for your reference. Country locations are based on the coordinates of their capital cities.</p>
           </div>
         </div>
       )}
