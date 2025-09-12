@@ -344,21 +344,6 @@ const GameBoard = () => {
             position: 'relative'
           }}
         >
-          {/* World area */}
-          <div 
-            className="world-area"
-            style={{
-              position: 'absolute',
-              width: '900px',
-              height: '600px',
-              backgroundColor: 'rgba(30, 58, 138, 0.08)',
-              pointerEvents: 'none',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              zIndex: -1
-            }}
-          />
           
           {countries.map((country) => (
             userPositions[country.name] && (
@@ -396,7 +381,8 @@ const GameBoard = () => {
                       fontWeight: 'bold',
                       display: 'inline-block',
                       minWidth: '40px',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      zIndex: 1000
                     }}
                   >
                     {country.name}

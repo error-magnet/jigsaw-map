@@ -314,11 +314,12 @@
   position: relative;
   flex: 1;
   width: 100%;
-  background-color: #ecf0f1;
+  background-color: rgba(173, 216, 230, 0.5);
   background-image: 
-    radial-gradient(circle at 1px 1px, rgba(52, 152, 219, 0.2) 1px, transparent 0);
-  background-size: 20px 20px;
-  border: 2px solid #bdc3c7;
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px;
+  border: 2px solid #457b9d;
   border-radius: 10px;
   min-height: 600px;
   overflow: hidden;
