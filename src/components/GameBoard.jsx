@@ -277,9 +277,10 @@ const GameBoard = () => {
                   }}
                   isPlaced={false}
                   position={null}
-                  index={-1}
                   onPan={handlePan}
                   gameBoardRef={gameBoardRef}
+                  zoom={zoom}
+                  pan={pan}
                 />
               </div>
               <span className="place-this-subtitle">drag this!</span>
@@ -343,13 +344,12 @@ const GameBoard = () => {
               height: '600px',
               backgroundColor: 'rgba(30, 58, 138, 0.08)',
               pointerEvents: 'none',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)'
+              top: 0,
+              left: 0
             }}
           />
           
-          {countries.map((country, index) => (
+          {countries.map((country) => (
             userPositions[country.name] && (
               <CountryBlock
                 key={country.name}
@@ -357,9 +357,10 @@ const GameBoard = () => {
                 onPositionChange={handlePositionChange}
                 isPlaced={true}
                 position={userPositions[country.name]}
-                index={index}
                 onPan={handlePan}
                 gameBoardRef={gameBoardRef}
+                zoom={zoom}
+                pan={pan}
               />
             )
           ))}
@@ -455,28 +456,36 @@ const GameBoard = () => {
               
               <div className="help-section">
                 <h3>🎯 Objective</h3>
-                <p>Place all the countries in their correct positions relative to other countries on the map.</p>
+                <p>Place countries on the world map as close as possible to their correct geographical positions.</p>
               </div>
               
               <div className="help-section">
                 <h3>📍 Getting Started</h3>
-                <p>Three countries have been placed for you as reference points to help you get oriented.</p>
+                <p>India, USA, and UK are already placed as reference points to help you get oriented.</p>
               </div>
               
               <div className="help-section">
-                <h3>🎮 How to Play</h3>
+                <h3>🎮 Two Ways to Add Countries</h3>
                 <ul>
-                  <li>Click the "+" buttons below to add countries to the map</li>
-                  <li>Drag countries to position them on the map</li>
-                  <li>Use zoom controls or pinch gestures to navigate</li>
-                  <li>Submit your guess as many times as you want to see your score</li>
-                  <li>Click "Show Solution" to see the correct positions</li>
+                  <li><strong>Quick Play:</strong> Drag the suggested country from the top directly to the map</li>
+                  <li><strong>Choose Your Own:</strong> Click "+ Countries" to browse and select from the full list</li>
+                </ul>
+              </div>
+              
+              
+              <div className="help-section">
+                <h3>📊 Scoring</h3>
+                <ul>
+                  <li><strong>Green (80-100):</strong> Correct placement</li>
+                  <li><strong>Yellow (50-79):</strong> Almost there</li>
+                  <li><strong>Red (0-49):</strong> Off target</li>
+                  <li>Click "Check Score" anytime to see your progress</li>
                 </ul>
               </div>
               
               <div className="help-section">
-                <h3>🌍 Location Reference</h3>
-                <p>Country locations roughly correspond to the GPS coordinates of their capital cities.</p>
+                <h3>🌍 Location System</h3>
+                <p>Country positions are based on their capital city GPS coordinates. The closer you place a country to its capital, the higher your score!</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, onPan, gameBoardRef }) => {
+const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, gameBoardRef, zoom, pan }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragPosition, setDragPosition] = useState(null);
 
@@ -103,9 +103,9 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
                              currentPos.y <= rect.bottom;
         
         if (isInGameBoard) {
-          // Convert screen coordinates to game board coordinates
-          const gameX = currentPos.x - rect.left;
-          const gameY = currentPos.y - rect.top;
+          // Convert screen coordinates to game world coordinates (accounting for zoom and pan)
+          const gameX = (currentPos.x - rect.left - pan.x * zoom) / zoom;
+          const gameY = (currentPos.y - rect.top - pan.y * zoom) / zoom;
           
           onPositionChange(country.name, { x: gameX, y: gameY });
         }
