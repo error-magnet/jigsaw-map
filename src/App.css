@@ -530,7 +530,7 @@
 .score-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -544,16 +544,20 @@
 .performance-stats-horizontal {
   display: flex;
   gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 1.25rem;
   border-radius: 12px;
   flex: 1;
   text-align: center;
+  min-width: 120px;
+  max-width: 140px;
 }
 
 .stat-number {
@@ -997,6 +1001,16 @@
   .performance-stats-horizontal {
     justify-content: center;
     gap: 1rem;
+  }
+  
+  .stat-item {
+    min-width: 80px;
+    max-width: 100px;
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
   }
   
   .score-number-horizontal {
