@@ -75,46 +75,48 @@ const GameBoard = () => {
       const countryScore = Math.max(0, 100 * (1 - normalizedDistance));
       const roundedScore = Math.round(countryScore);
       
-      // Only show feedback if this is the end of a drag (not continuous updates during drag)
-      // We can detect this by checking if the country was already scored recently
-      const wasRecentlyScored = countryScores[countryName] !== undefined;
-      
+      // Always update the score
       setCountryScores(prev => ({
         ...prev,
         [countryName]: roundedScore
       }));
+    }
+  };
 
-      if (!wasRecentlyScored) {
-        // Show confetti for excellent placement (95+) - no text feedback
-        if (roundedScore >= 95) {
-          setConfettiCountry(countryName);
-          setTimeout(() => setConfettiCountry(null), 1000);
-        } else {
-          // Show feedback text only if not showing confetti
-          let feedbackMessage = '';
-          if (roundedScore >= 90) {
-            feedbackMessage = 'Very close!';
-          } else if (roundedScore >= 50) {
-            feedbackMessage = 'Almost there!';
-          } else {
-            feedbackMessage = 'Far!!';
-          }
+  const handleDragEnd = (countryName) => {
+    // Get the current score for this country
+    const score = countryScores[countryName];
+    if (typeof score !== 'number') return;
 
-          setFeedbackText(prev => ({
-            ...prev,
-            [countryName]: feedbackMessage
-          }));
-
-          // Hide feedback text after 1 second
-          setTimeout(() => {
-            setFeedbackText(prev => {
-              const updated = { ...prev };
-              delete updated[countryName];
-              return updated;
-            });
-          }, 1000);
-        }
+    // Show feedback based on score - always show one of these on drag end
+    if (score >= 95) {
+      // Show confetti for excellent placement
+      setConfettiCountry(countryName);
+      setTimeout(() => setConfettiCountry(null), 1000);
+    } else {
+      // Show feedback text
+      let feedbackMessage = '';
+      if (score >= 90) {
+        feedbackMessage = 'Very close!';
+      } else if (score >= 50) {
+        feedbackMessage = 'Almost there!';
+      } else {
+        feedbackMessage = 'Far!!';
       }
+
+      setFeedbackText(prev => ({
+        ...prev,
+        [countryName]: feedbackMessage
+      }));
+
+      // Hide feedback text after 1 second
+      setTimeout(() => {
+        setFeedbackText(prev => {
+          const updated = { ...prev };
+          delete updated[countryName];
+          return updated;
+        });
+      }, 1000);
     }
   };
 
@@ -351,6 +353,7 @@ const GameBoard = () => {
                     handlePositionChange(countryName, position);
                     setTimeout(() => getRandomCountry(), 100);
                   }}
+                  onDragEnd={handleDragEnd}
                   isPlaced={false}
                   position={null}
                   onPan={handlePan}
@@ -421,6 +424,7 @@ const GameBoard = () => {
                 key={country.name}
                 country={country}
                 onPositionChange={handlePositionChange}
+                onDragEnd={handleDragEnd}
                 isPlaced={true}
                 position={userPositions[country.name]}
                 onPan={handlePan}

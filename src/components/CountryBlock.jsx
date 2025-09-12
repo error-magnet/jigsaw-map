@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, gameBoardRef, zoom, pan, score, showConfetti, feedbackText }) => {
+const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position, onPan, gameBoardRef, zoom, pan, score, showConfetti, feedbackText }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragPosition, setDragPosition] = useState(null);
 
@@ -91,6 +91,8 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
       setIsDragging(false);
       setDragPosition(null);
       
+      let feedbackTriggered = false;
+      
       // For header countries (not placed), check if dropped on game board
       if (!isPlaced && gameBoardRef?.current) {
         const currentPos = getEventPosition(e.changedTouches ? e.changedTouches[0] : e);
@@ -112,7 +114,15 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
           const centeredY = gameY - 15; // Approximate half-height of country block
           
           onPositionChange(country.name, { x: centeredX, y: centeredY });
+          
+          // Trigger feedback after a short delay to allow score calculation
+          setTimeout(() => onDragEnd && onDragEnd(country.name), 50);
+          feedbackTriggered = true;
         }
+      } else if (isPlaced) {
+        // For placed countries that were just moved, trigger feedback
+        setTimeout(() => onDragEnd && onDragEnd(country.name), 50);
+        feedbackTriggered = true;
       }
       
       document.removeEventListener('mousemove', handleMove);
