@@ -16,8 +16,8 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
 
     const gameBoard = gameBoardRef.current;
     const rect = gameBoard.getBoundingClientRect();
-    const edgeThreshold = 50; // Distance from edge to start panning
-    const panSpeed = 5; // Pixels to pan per move event
+    const edgeThreshold = 30; // Reduced threshold for less intrusive panning
+    const panSpeed = 2; // Reduced speed for smoother experience
 
     // Calculate distances from edges
     const distanceFromLeft = clientX - rect.left;
@@ -62,13 +62,18 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
       const deltaX = currentPos.x - startPos.x;
       const deltaY = currentPos.y - startPos.y;
       
-      onPositionChange(country.name, {
-        x: startPosX + deltaX,
-        y: startPosY + deltaY
+      // Update position immediately for responsive dragging
+      requestAnimationFrame(() => {
+        onPositionChange(country.name, {
+          x: startPosX + deltaX,
+          y: startPosY + deltaY
+        });
       });
 
-      // Check and apply auto-panning if near edges
-      checkAndPan(currentPos.x, currentPos.y);
+      // Only check for panning occasionally to reduce performance impact
+      if (Math.abs(deltaX) % 5 === 0 || Math.abs(deltaY) % 5 === 0) {
+        checkAndPan(currentPos.x, currentPos.y);
+      }
     };
 
     const handleEnd = (e) => {

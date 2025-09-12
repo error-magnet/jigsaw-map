@@ -13,7 +13,7 @@ const GameBoard = () => {
   const isMobile = window.innerWidth <= 768;
   const initialZoom = isMobile ? 0.6 : 1;
   
-  const { zoom, pan, handleZoom, handlePan, resetZoom, zoomIn, zoomOut } = useZoom(initialZoom);
+  const { zoom, pan, handleZoom, handlePan, resetZoom, zoomIn, zoomOut } = useZoom(initialZoom, 0.5, 10);
   const [isPanning, setIsPanning] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [lastTouchDistance, setLastTouchDistance] = useState(null);
