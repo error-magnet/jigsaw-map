@@ -56,6 +56,7 @@ const GameBoard = () => {
   const [countryScores, setCountryScores] = useState({});
   const [confettiCountry, setConfettiCountry] = useState(null);
   const [feedbackText, setFeedbackText] = useState({});
+  const [topCountry, setTopCountry] = useState(null); // Track which country should be on top
 
   const handlePositionChange = (countryName, position) => {
     setUserPositions(prev => ({
@@ -84,6 +85,9 @@ const GameBoard = () => {
   };
 
   const handleDragEnd = (countryName) => {
+    // Set this country as the top country (z-index 20)
+    setTopCountry(countryName);
+
     // Get the current score for this country
     const score = countryScores[countryName];
     if (typeof score !== 'number') return;
@@ -138,6 +142,7 @@ const GameBoard = () => {
     setCountryScores({});
     setConfettiCountry(null);
     setFeedbackText({});
+    setTopCountry(null);
     resetZoom();
     getRandomCountry();
   };
@@ -351,11 +356,7 @@ const GameBoard = () => {
                   country={currentRandomCountry}
                   onPositionChange={(countryName, position) => {
                     handlePositionChange(countryName, position);
-                    // Trigger feedback immediately for header drops, then change random country
-                    setTimeout(() => {
-                      handleDragEnd(countryName);
-                      setTimeout(() => getRandomCountry(), 50);
-                    }, 50);
+                    setTimeout(() => getRandomCountry(), 100);
                   }}
                   onDragEnd={handleDragEnd}
                   isPlaced={false}
@@ -367,6 +368,7 @@ const GameBoard = () => {
                   score={countryScores[currentRandomCountry?.name]}
                   showConfetti={confettiCountry === currentRandomCountry?.name}
                   feedbackText={feedbackText[currentRandomCountry?.name]}
+                  isTopCountry={topCountry === currentRandomCountry?.name}
                 />
               </div>
               <span className="place-this-subtitle">drag this!</span>
@@ -438,6 +440,7 @@ const GameBoard = () => {
                 score={countryScores[country.name]}
                 showConfetti={confettiCountry === country.name}
                 feedbackText={feedbackText[country.name]}
+                isTopCountry={topCountry === country.name}
               />
             )
           ))}

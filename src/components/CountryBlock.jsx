@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position, onPan, gameBoardRef, zoom, pan, score, showConfetti, feedbackText }) => {
+const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position, onPan, gameBoardRef, zoom, pan, score, showConfetti, feedbackText, isTopCountry }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragPosition, setDragPosition] = useState(null);
 
@@ -115,8 +115,8 @@ const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position
           
           onPositionChange(country.name, { x: centeredX, y: centeredY });
           
-          // For header countries, feedback is handled in GameBoard's onPositionChange
-          // Don't trigger additional feedback here
+          // Trigger feedback for header country drops
+          setTimeout(() => onDragEnd && onDragEnd(country.name), 50);
           feedbackTriggered = true;
         }
       } else if (isPlaced) {
@@ -223,7 +223,7 @@ const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position
           opacity: (isDragging && !isPlaced) ? 0.5 : 1,
           transform: isPlaced ? `scale(${1/zoom})` : 'none', // Counter the zoom scale
           transformOrigin: 'top left', // Keep position consistent
-          zIndex: 10 // Normal z-index
+          zIndex: isDragging ? 1000 : (isTopCountry ? 20 : 10) // Dragging: 1000, Top country: 20, Others: 10
         }}
         onMouseDown={handleStart}
         onTouchStart={handleStart}
