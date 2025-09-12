@@ -430,6 +430,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Match canvas countries to header country styling with better spacing */
+.country-block:not(.header-country) {
+  border-radius: 6px;
+  padding: 0.2rem 0.4rem;
+}
+
 
 .countries-panel {
   background: white;
