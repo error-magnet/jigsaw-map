@@ -212,8 +212,7 @@ const GameBoard = () => {
           {!solutionShown && (
             <button 
               className="btn-primary" 
-              onClick={handleSubmit} 
-              disabled={gamePhase === 'submitted'}
+              onClick={handleSubmit}
             >
               Submit Guess
             </button>
@@ -224,7 +223,7 @@ const GameBoard = () => {
           >
             Reset
           </button>
-          {gamePhase === 'placing' && !solutionShown && (
+          {!solutionShown && (
             <button 
               className="btn-tertiary" 
               onClick={showSolution}

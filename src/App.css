@@ -91,24 +91,24 @@
 
 /* Button Variants */
 .btn-primary {
-  background-color: #374151 !important;
+  background-color: #15803d !important;
   color: white !important;
-  border: 2px solid #059669 !important;
+  border: 2px solid #16a34a !important;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #1f2937 !important;
-  border-color: #047857 !important;
+  background-color: #166534 !important;
+  border-color: #15803d !important;
 }
 
 .btn-secondary {
-  background-color: #374151 !important;
+  background-color: #b91c1c !important;
   color: white !important;
   border: 2px solid #dc2626 !important;
 }
 
 .btn-secondary:hover {
-  background-color: #1f2937 !important;
+  background-color: #991b1b !important;
   border-color: #b91c1c !important;
 }
 
