@@ -130,7 +130,7 @@
 }
 
 .btn-countries .plus-icon {
-  color: #bfdbfe;
+  color: white;
   margin-right: 0.25rem;
 }
 
@@ -849,8 +849,9 @@
   
   .github-link-bottom {
     align-self: center;
+    padding: 0.4rem 0.8rem;
+    height: 32px;
   }
-  
   
   .game-board {
     min-height: 400px;
@@ -873,28 +874,76 @@
     min-width: 40px;
   }
   
-  .help-modal {
-    min-width: 90vw;
+  /* Mobile Popup Optimizations */
+  .score-popup-overlay,
+  .help-modal-overlay,
+  .countries-modal-overlay {
+    padding: 0.5rem;
+  }
+  
+  .score-popup {
+    min-width: 95vw;
     max-width: 95vw;
-    margin: 1rem;
+    max-height: 85vh;
+    margin: 0;
+  }
+  
+  .help-modal {
+    min-width: 95vw;
+    max-width: 95vw;
+    max-height: 85vh;
+    margin: 0;
   }
   
   .help-content {
-    padding: 1.5rem;
+    padding: 1rem;
+    padding-top: 2.5rem; /* Space for close button */
+  }
+  
+  .help-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .help-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .help-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .help-section p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+  
+  .help-section ul {
+    font-size: 0.875rem;
+    padding-left: 1rem;
   }
   
   .countries-modal {
-    min-width: 90vw;
+    min-width: 95vw;
     max-width: 95vw;
-    margin: 1rem;
+    max-height: 85vh;
+    margin: 0;
   }
   
   .countries-modal-content {
-    padding: 1.5rem;
+    padding: 1rem;
+    padding-top: 2.5rem; /* Space for close button */
   }
   
   .countries-modal-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .countries-modal-subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
   }
   
   .countries-list {
@@ -905,6 +954,8 @@
     font-size: 0.75rem;
     padding: 0.4rem 0.6rem;
     min-width: 70px;
+    /* Better touch targets */
+    min-height: 40px;
   }
   
   .country-block {
@@ -912,8 +963,22 @@
     padding: 0.08rem 0.15rem;
   }
   
-  .github-link-bottom {
-    padding: 0.4rem 0.8rem;
-    height: 32px;
+  /* Enhanced close button for mobile */
+  .close-popup {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .close-popup:hover {
+    background-color: rgba(255, 255, 255, 1);
   }
 }

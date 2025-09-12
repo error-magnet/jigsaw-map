@@ -220,7 +220,7 @@ const GameBoard = () => {
             className="btn-countries" 
             onClick={() => setShowCountriesModal(true)}
           >
-            <span className="plus-icon">➕</span> Add Countries
+            <span className="plus-icon">+</span> Add Countries
           </button>
           <div className="button-separator"></div>
           {!solutionShown && (
@@ -269,6 +269,8 @@ const GameBoard = () => {
                 isPlaced={true}
                 position={userPositions[country.name]}
                 index={index}
+                onPan={handlePan}
+                gameBoardRef={gameBoardRef}
               />
             )
           ))}
@@ -404,7 +406,6 @@ const GameBoard = () => {
             </button>
             <div className="countries-modal-content">
               <h2>Add Countries to the Map</h2>
-              <p className="countries-modal-subtitle">Click any country to add it to the map</p>
               
               {(() => {
                 const unplacedCountries = countries.filter(country => !userPositions[country.name]);
@@ -464,14 +465,14 @@ const GameBoard = () => {
                                 color: textColor
                               }}
                               onClick={() => {
-                                handlePositionChange(country.name, { x: 20, y: 20 }); // Top corner position
+                                handlePositionChange(country.name, { x: 120, y: 20 }); // More to the right position
                                 setShowCountriesModal(false); // Close modal after adding
                                 resetZoom(); // Reset view to default zoom and pan
                                 // Scroll to top to see the canvas
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                               }}
                             >
-                              + {country.name}
+                              {country.name}
                             </button>
                           );
                         })}

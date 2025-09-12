@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CountryBlock = ({ country, onPositionChange, isPlaced, position, index }) => {
+const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, onPan, gameBoardRef }) => {
   const [isDragging, setIsDragging] = useState(false);
 
   const getEventPosition = (e) => {
@@ -9,6 +9,42 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index }) 
       return { x: e.touches[0].clientX, y: e.touches[0].clientY };
     }
     return { x: e.clientX, y: e.clientY };
+  };
+
+  const checkAndPan = (clientX, clientY) => {
+    if (!gameBoardRef?.current || !onPan || !isDragging) return;
+
+    const gameBoard = gameBoardRef.current;
+    const rect = gameBoard.getBoundingClientRect();
+    const edgeThreshold = 50; // Distance from edge to start panning
+    const panSpeed = 5; // Pixels to pan per move event
+
+    // Calculate distances from edges
+    const distanceFromLeft = clientX - rect.left;
+    const distanceFromRight = rect.right - clientX;
+    const distanceFromTop = clientY - rect.top;
+    const distanceFromBottom = rect.bottom - clientY;
+
+    let panX = 0;
+    let panY = 0;
+
+    // Determine pan direction and speed
+    if (distanceFromLeft < edgeThreshold && distanceFromLeft > 0) {
+      panX = panSpeed; // Pan right (move viewport left)
+    } else if (distanceFromRight < edgeThreshold && distanceFromRight > 0) {
+      panX = -panSpeed; // Pan left (move viewport right)
+    }
+
+    if (distanceFromTop < edgeThreshold && distanceFromTop > 0) {
+      panY = panSpeed; // Pan down (move viewport up)
+    } else if (distanceFromBottom < edgeThreshold && distanceFromBottom > 0) {
+      panY = -panSpeed; // Pan up (move viewport down)
+    }
+
+    // Apply panning if needed
+    if (panX !== 0 || panY !== 0) {
+      onPan(panX, panY);
+    }
   };
 
   const handleStart = (e) => {
@@ -30,6 +66,9 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index }) 
         x: startPosX + deltaX,
         y: startPosY + deltaY
       });
+
+      // Check and apply auto-panning if near edges
+      checkAndPan(currentPos.x, currentPos.y);
     };
 
     const handleEnd = (e) => {
