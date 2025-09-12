@@ -16,6 +16,8 @@ const GameBoard = () => {
   const { zoom, pan, handleZoom, handlePan, resetZoom, zoomIn, zoomOut } = useZoom(initialZoom, 0.5, 10);
   const [isPanning, setIsPanning] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
+  const [initialMousePos, setInitialMousePos] = useState({ x: 0, y: 0 });
+  const [initialTouchPos, setInitialTouchPos] = useState({ x: 0, y: 0 });
   const [lastTouchDistance, setLastTouchDistance] = useState(null);
   const [touches, setTouches] = useState([]);
   
@@ -85,8 +87,28 @@ const GameBoard = () => {
       setCurrentRandomCountry(null);
       return null;
     }
-    const randomIndex = Math.floor(Math.random() * unplacedCountries.length);
-    const randomCountry = unplacedCountries[randomIndex];
+    
+    // Calculate total weighted population
+    const totalWeightedPopulation = unplacedCountries.reduce((sum, country) => {
+      // Use square root to moderate the population bias - still favors high pop but not too extremely
+      return sum + Math.sqrt(country.population || 1);
+    }, 0);
+    
+    // Generate random number between 0 and total weighted population
+    let randomWeight = Math.random() * totalWeightedPopulation;
+    
+    // Find the country that corresponds to this random weight
+    for (let country of unplacedCountries) {
+      const countryWeight = Math.sqrt(country.population || 1);
+      if (randomWeight <= countryWeight) {
+        setCurrentRandomCountry(country);
+        return country;
+      }
+      randomWeight -= countryWeight;
+    }
+    
+    // Fallback (should not reach here)
+    const randomCountry = unplacedCountries[unplacedCountries.length - 1];
     setCurrentRandomCountry(randomCountry);
     return randomCountry;
   };
@@ -132,7 +154,25 @@ const GameBoard = () => {
     if (e.target === gameBoardRef.current || e.target.classList.contains('game-world')) {
       setIsPanning(true);
       setLastMousePos({ x: e.clientX, y: e.clientY });
+      setInitialMousePos({ x: e.clientX, y: e.clientY });
       e.preventDefault();
+    }
+  };
+
+  const handleCanvasClick = (e) => {
+    // Only handle clicks if we have a random country
+    if (currentRandomCountry && (e.target === gameBoardRef.current || e.target.classList.contains('game-world'))) {
+      const rect = gameBoardRef.current.getBoundingClientRect();
+      
+      // Convert screen coordinates to game board coordinates (accounting for zoom and pan)
+      const gameX = (e.clientX - rect.left - pan.x * zoom) / zoom;
+      const gameY = (e.clientY - rect.top - pan.y * zoom) / zoom;
+      
+      // Place the random country at the clicked position
+      handlePositionChange(currentRandomCountry.name, { x: gameX, y: gameY });
+      
+      // Get next random country
+      setTimeout(() => getRandomCountry(), 100);
     }
   };
 
@@ -145,8 +185,22 @@ const GameBoard = () => {
     }
   };
 
-  const handleMouseUp = () => {
-    setIsPanning(false);
+  const handleMouseUp = (e) => {
+    if (isPanning) {
+      // Check if this was a click (not a drag) - small movement tolerance
+      const deltaX = Math.abs(e.clientX - initialMousePos.x);
+      const deltaY = Math.abs(e.clientY - initialMousePos.y);
+      const isClick = deltaX < 5 && deltaY < 5;
+      
+      setIsPanning(false);
+      
+      // Handle click after state is updated
+      if (isClick) {
+        // Use the initial mouse position for more accurate placement
+        const clickEvent = { ...e, clientX: initialMousePos.x, clientY: initialMousePos.y };
+        setTimeout(() => handleCanvasClick(clickEvent), 10);
+      }
+    }
   };
 
   // Touch event handlers
@@ -161,6 +215,7 @@ const GameBoard = () => {
       if (e.target === gameBoardRef.current || e.target.classList.contains('game-world')) {
         setIsPanning(true);
         setLastMousePos({ x: touch.clientX, y: touch.clientY });
+        setInitialTouchPos({ x: touch.clientX, y: touch.clientY });
       }
     } else if (touchArray.length === 2) {
       // Two touches - prepare for pinch zoom
@@ -194,10 +249,24 @@ const GameBoard = () => {
   const handleTouchEnd = (e) => {
     e.preventDefault();
     const touchArray = Array.from(e.touches);
+    const changedTouches = Array.from(e.changedTouches);
     
     if (touchArray.length === 0) {
-      // All touches ended
-      setIsPanning(false);
+      // All touches ended - check if this was a tap
+      if (isPanning && changedTouches.length === 1) {
+        const touch = changedTouches[0];
+        const deltaX = Math.abs(touch.clientX - initialTouchPos.x);
+        const deltaY = Math.abs(touch.clientY - initialTouchPos.y);
+        const isTap = deltaX < 10 && deltaY < 10; // Slightly larger threshold for touch
+        
+        setIsPanning(false);
+        
+        if (isTap) {
+          // Use the initial touch position for more accurate placement
+          const tapEvent = { ...e, clientX: initialTouchPos.x, clientY: initialTouchPos.y, target: gameBoardRef.current };
+          setTimeout(() => handleCanvasClick(tapEvent), 10);
+        }
+      }
       setLastTouchDistance(null);
       setTouches([]);
     } else if (touchArray.length === 1) {
@@ -230,10 +299,10 @@ const GameBoard = () => {
     }
   }, [isPanning, lastMousePos, lastTouchDistance, handleZoom, handlePan]);
 
-  // Initialize random country on component mount and when countries change
+  // Initialize random country on component mount only
   useEffect(() => {
     getRandomCountry();
-  }, [userPositions]);
+  }, []); // Empty dependency array - only run on mount
 
   return (
     <div className="game-container">
@@ -244,30 +313,37 @@ const GameBoard = () => {
         </div>
         
         <div className="header-controls">
-          <button 
-            className="btn-countries" 
-            onClick={() => setShowCountriesModal(true)}
-          >
-            <span className="plus-icon">+</span> Countries
-          </button>
           {currentRandomCountry && (
-            <div className="random-country-container">
-              <CountryBlock
-                country={currentRandomCountry}
-                onPositionChange={(countryName, position) => {
-                  handlePositionChange(countryName, position);
-                  resetZoom();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                  setTimeout(() => getRandomCountry(), 100);
-                }}
-                isPlaced={false}
-                position={null}
-                index={-1}
-                onPan={handlePan}
-                gameBoardRef={gameBoardRef}
-              />
+            <div className="random-country-section">
+              <div className="random-country-container">
+                <CountryBlock
+                  country={currentRandomCountry}
+                  onPositionChange={(countryName, position) => {
+                    handlePositionChange(countryName, position);
+                    resetZoom();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setTimeout(() => getRandomCountry(), 100);
+                  }}
+                  isPlaced={false}
+                  position={null}
+                  index={-1}
+                  onPan={handlePan}
+                  gameBoardRef={gameBoardRef}
+                />
+              </div>
+              <span className="place-this-subtitle">place this!</span>
             </div>
           )}
+          <div className="button-separator"></div>
+          <div className="countries-button-section">
+            <button 
+              className="btn-countries" 
+              onClick={() => setShowCountriesModal(true)}
+            >
+              <span className="plus-icon">+</span> Countries
+            </button>
+            <span className="countries-subtitle">or select from list</span>
+          </div>
           <div className="button-separator"></div>
           {!solutionShown && (
             <button 

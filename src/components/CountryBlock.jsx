@@ -62,13 +62,16 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
       const deltaX = currentPos.x - startPos.x;
       const deltaY = currentPos.y - startPos.y;
       
-      // Update position immediately for responsive dragging
-      requestAnimationFrame(() => {
-        onPositionChange(country.name, {
-          x: startPosX + deltaX,
-          y: startPosY + deltaY
+      // Only update position for placed countries (not header countries)
+      if (isPlaced) {
+        // Update position immediately for responsive dragging
+        requestAnimationFrame(() => {
+          onPositionChange(country.name, {
+            x: startPosX + deltaX,
+            y: startPosY + deltaY
+          });
         });
-      });
+      }
 
       // Only check for panning occasionally to reduce performance impact
       if (Math.abs(deltaX) % 5 === 0 || Math.abs(deltaY) % 5 === 0) {
@@ -79,6 +82,27 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
     const handleEnd = (e) => {
       e.preventDefault();
       setIsDragging(false);
+      
+      // For header countries (not placed), check if dropped on game board
+      if (!isPlaced && gameBoardRef?.current) {
+        const currentPos = getEventPosition(e.changedTouches ? e.changedTouches[0] : e);
+        const rect = gameBoardRef.current.getBoundingClientRect();
+        
+        // Check if dropped inside the game board
+        const isInGameBoard = currentPos.x >= rect.left && 
+                             currentPos.x <= rect.right && 
+                             currentPos.y >= rect.top && 
+                             currentPos.y <= rect.bottom;
+        
+        if (isInGameBoard) {
+          // Convert screen coordinates to game board coordinates
+          const gameX = currentPos.x - rect.left;
+          const gameY = currentPos.y - rect.top;
+          
+          onPositionChange(country.name, { x: gameX, y: gameY });
+        }
+      }
+      
       document.removeEventListener('mousemove', handleMove);
       document.removeEventListener('mouseup', handleEnd);
       document.removeEventListener('touchmove', handleMove);

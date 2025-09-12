@@ -162,11 +162,17 @@
   margin: 0 0.5rem;
 }
 
-/* Random Country Container */
+/* Random Country Section */
+.random-country-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 .random-country-container {
   display: flex;
   align-items: center;
-  margin: 0 0.5rem;
 }
 
 .country-block.header-country {
@@ -177,6 +183,30 @@
   border-radius: 6px;
   font-weight: 600;
   white-space: nowrap;
+}
+
+.place-this-subtitle {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Countries Button Section */
+.countries-button-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.countries-subtitle {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
 }
 
 .zoom-controls {
