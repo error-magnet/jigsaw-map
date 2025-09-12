@@ -89,6 +89,13 @@
   cursor: not-allowed;
 }
 
+/* Action buttons container - horizontal on desktop */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
 /* Button Variants */
 .btn-primary {
   background-color: #16a34a !important;
@@ -844,6 +851,19 @@
     font-size: 0.75rem;
     padding: 0.4rem 0.8rem;
     height: 32px;
+  }
+  
+  /* Action buttons container for mobile */
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .action-buttons button {
+    width: 100%;
+    max-width: 120px;
   }
   
   .bottom-controls {

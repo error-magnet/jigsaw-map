@@ -74,7 +74,7 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
       }
 
       // Only check for panning occasionally to reduce performance impact
-      if (Math.abs(deltaX) % 5 === 0 || Math.abs(deltaY) % 5 === 0) {
+      if (Math.abs(deltaX) % 10 === 0 || Math.abs(deltaY) % 10 === 0) {
         checkAndPan(currentPos.x, currentPos.y);
       }
     };
