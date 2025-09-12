@@ -3,7 +3,6 @@ import { useState } from 'react';
 const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, gameBoardRef, zoom, pan, score, showConfetti, feedbackText }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragPosition, setDragPosition] = useState(null);
-  const [recentlyPlaced, setRecentlyPlaced] = useState(false);
 
   const getEventPosition = (e) => {
     // Handle both mouse and touch events
@@ -92,12 +91,6 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
       setIsDragging(false);
       setDragPosition(null);
       
-      // Mark as recently placed to keep on top briefly
-      if (isPlaced) {
-        setRecentlyPlaced(true);
-        setTimeout(() => setRecentlyPlaced(false), 500); // Stay on top for 0.5 seconds
-      }
-      
       // For header countries (not placed), check if dropped on game board
       if (!isPlaced && gameBoardRef?.current) {
         const currentPos = getEventPosition(e.changedTouches ? e.changedTouches[0] : e);
@@ -119,10 +112,6 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
           const centeredY = gameY - 15; // Approximate half-height of country block
           
           onPositionChange(country.name, { x: centeredX, y: centeredY });
-          
-          // Mark as recently placed for new placements
-          setRecentlyPlaced(true);
-          setTimeout(() => setRecentlyPlaced(false), 500);
         }
       }
       
@@ -224,7 +213,7 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
           opacity: (isDragging && !isPlaced) ? 0.5 : 1,
           transform: isPlaced ? `scale(${1/zoom})` : 'none', // Counter the zoom scale
           transformOrigin: 'top left', // Keep position consistent
-          zIndex: isDragging ? 2000 : (recentlyPlaced ? 1500 : 10) // Bring to top when dragging or recently placed
+          zIndex: 10 // Normal z-index
         }}
         onMouseDown={handleStart}
         onTouchStart={handleStart}
