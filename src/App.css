@@ -394,6 +394,11 @@
   text-decoration: none;
 }
 
+.right-controls {
+  display: flex;
+  align-items: center;
+}
+
 .country-block {
   display: inline-block;
   padding: 0.1rem 0.2rem;
@@ -403,7 +408,7 @@
   font-weight: bold;
   text-shadow: none;
   user-select: none;
-  min-width: 12px;
+  min-width: 40px;
   text-align: center;
   background-color: #f9fafb;
   border: 1px solid;
