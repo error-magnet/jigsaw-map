@@ -24,17 +24,6 @@ const GameBoard = () => {
       setInitialPanSet(true);
     }
   }, [isMobile, initialPanSet, handlePan]);
-
-  // Hide instructions overlay after 2 seconds
-  useEffect(() => {
-    if (showInstructionsOverlay) {
-      const timer = setTimeout(() => {
-        setShowInstructionsOverlay(false);
-      }, 2000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [showInstructionsOverlay]);
   const [isPanning, setIsPanning] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [lastTouchDistance, setLastTouchDistance] = useState(null);
@@ -63,12 +52,30 @@ const GameBoard = () => {
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [showCountriesModal, setShowCountriesModal] = useState(false);
   const [currentRandomCountry, setCurrentRandomCountry] = useState(null);
-  const [showInstructionsOverlay, setShowInstructionsOverlay] = useState(true);
+  const [showInstructionsOverlay, setShowInstructionsOverlay] = useState(() => {
+    // Only show on first visit
+    return !localStorage.getItem('hasSeenInstructions');
+  });
 
   const [countryScores, setCountryScores] = useState({});
   const [confettiCountry, setConfettiCountry] = useState(null);
   const [feedbackText, setFeedbackText] = useState({});
   const [topCountry, setTopCountry] = useState(null); // Track which country should be on top
+
+  // Set scores for default countries on component mount
+  useEffect(() => {
+    const startingCountries = ['India', 'United States of America', 'UK'];
+    const initialScores = {};
+    
+    startingCountries.forEach(countryName => {
+      const country = countries.find(c => c.name === countryName);
+      if (country) {
+        initialScores[countryName] = 100; // Perfect score since they're in correct position
+      }
+    });
+    
+    setCountryScores(initialScores);
+  }, [countries]);
 
   const handlePositionChange = (countryName, position) => {
     setUserPositions(prev => ({
@@ -703,7 +710,18 @@ const GameBoard = () => {
       {showInstructionsOverlay && (
         <div className="instructions-overlay">
           <div className="instructions-content">
-            <p>3 countries are pre-populated for your reference. Country locations are based on the coordinates of their capital cities.</p>
+            <h2>Place countries on the map!</h2>
+            <p>3 countries are pre-populated for your reference.</p>
+            <p>Country locations are based on their capital cities</p>
+            <button 
+              className="got-it-btn"
+              onClick={() => {
+                setShowInstructionsOverlay(false);
+                localStorage.setItem('hasSeenInstructions', 'true');
+              }}
+            >
+              Got it!
+            </button>
           </div>
         </div>
       )}

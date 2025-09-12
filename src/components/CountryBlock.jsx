@@ -182,7 +182,7 @@ const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position
       const intensity = Math.min((score - 90) / 10, 1); // 0 to 1
       const green = Math.round(155 + intensity * 100); // 155 to 255
       backgroundColor = `rgb(34, ${green}, 94)`;
-      textColor = 'white';
+      textColor = 'black';
     } else if (score >= 70) {
       // Yellow-orange gradient for good scores (70-89)
       const intensity = (score - 70) / 20; // 0 to 1

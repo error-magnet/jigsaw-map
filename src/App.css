@@ -1158,12 +1158,40 @@
   margin: 0 1rem;
 }
 
+.instructions-content h2 {
+  margin: 0 0 1rem 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .instructions-content p {
-  margin: 0;
+  margin: 0 0 1rem 0;
   color: #374151;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.instructions-content p:last-of-type {
+  margin-bottom: 1.5rem;
+  color: #64748b;
+}
+
+.got-it-btn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.got-it-btn:hover {
+  background-color: #2563eb;
 }
 
 @keyframes fadeIn {
