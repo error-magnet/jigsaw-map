@@ -33,6 +33,8 @@ const GameBoard = () => {
   const [showCorrectPositions, setShowCorrectPositions] = useState(false);
   const [showScorePopup, setShowScorePopup] = useState(false);
   const [solutionShown, setSolutionShown] = useState(false);
+  const [showHelpModal, setShowHelpModal] = useState(false);
+  const [showCountriesModal, setShowCountriesModal] = useState(false);
 
   const handlePositionChange = (countryName, position) => {
     setUserPositions(prev => ({
@@ -205,8 +207,16 @@ const GameBoard = () => {
       <div className="game-header-controls">
         <div className="header-content">
           <h1>Jigsaw Map</h1>
-          <p>Drag country blocks to their correct positions</p>
+          <p>Place countries on the map and see how well you do!</p>
         </div>
+        
+        <button 
+          className="help-button" 
+          onClick={() => setShowHelpModal(true)}
+          title="Help"
+        >
+          ?
+        </button>
         
         <div className="controls-section">
           {!solutionShown && (
@@ -231,6 +241,12 @@ const GameBoard = () => {
               Show Solution
             </button>
           )}
+          <button 
+            className="btn-countries" 
+            onClick={() => setShowCountriesModal(true)}
+          >
+            Add Countries
+          </button>
           
         </div>
       </div>
@@ -298,81 +314,6 @@ const GameBoard = () => {
         </div>
       </div>
 
-      <div className="countries-panel">
-        <h3>Countries to Add:</h3>
-        {(() => {
-          const unplacedCountries = countries.filter(country => !userPositions[country.name]);
-          const sectionsCount = 10;
-          const countriesPerSection = Math.ceil(unplacedCountries.length / sectionsCount);
-          
-          return Array.from({ length: sectionsCount }, (_, sectionIndex) => {
-            const startIndex = sectionIndex * countriesPerSection;
-            const endIndex = Math.min(startIndex + countriesPerSection, unplacedCountries.length);
-            const sectionCountries = unplacedCountries.slice(startIndex, endIndex);
-            
-            if (sectionCountries.length === 0) return null;
-            
-            return (
-              <div key={`section-${sectionIndex}`} className="countries-section">
-                <div className="countries-list">
-                  {sectionCountries.map((country, index) => {
-                    // Convert hex color to muted version (same logic as CountryBlock)
-                    const hexToMuted = (hex) => {
-                      hex = hex.replace('#', '');
-                      const r = parseInt(hex.substr(0, 2), 16);
-                      const g = parseInt(hex.substr(2, 2), 16);
-                      const b = parseInt(hex.substr(4, 2), 16);
-                      
-                      const avg = (r + g + b) / 3;
-                      const factor = 0.4;
-                      const lighten = 0.3;
-                      
-                      const newR = Math.min(255, Math.round(r * factor + avg * (1 - factor) + lighten * 255));
-                      const newG = Math.min(255, Math.round(g * factor + avg * (1 - factor) + lighten * 255));
-                      const newB = Math.min(255, Math.round(b * factor + avg * (1 - factor) + lighten * 255));
-                      
-                      return { r: newR, g: newG, b: newB };
-                    };
-
-                    // Calculate luminance to determine text color
-                    const getLuminance = (r, g, b) => {
-                      const [rs, gs, bs] = [r, g, b].map(c => {
-                        c = c / 255;
-                        return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
-                      });
-                      return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
-                    };
-
-                    const mutedRgb = hexToMuted(country.color);
-                    const backgroundColor = `rgb(${mutedRgb.r}, ${mutedRgb.g}, ${mutedRgb.b})`;
-                    const luminance = getLuminance(mutedRgb.r, mutedRgb.g, mutedRgb.b);
-                    const textColor = luminance > 0.5 ? 'black' : 'white';
-                    
-                    return (
-                      <button
-                        key={`add-${country.name}`}
-                        className="add-country-btn"
-                        style={{ 
-                          backgroundColor: backgroundColor,
-                          borderColor: country.color,
-                          color: textColor
-                        }}
-                        onClick={() => {
-                          handlePositionChange(country.name, { x: 20, y: 20 }); // Top corner position
-                          // Scroll to top to see the canvas
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                      >
-                        + {country.name}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          });
-        })()}
-      </div>
 
       {/* Score Popup */}
       {showScorePopup && score && (
@@ -385,6 +326,160 @@ const GameBoard = () => {
               ×
             </button>
             <ScoreDisplay score={score} showDetails={true} />
+          </div>
+        </div>
+      )}
+
+      {/* Help Modal */}
+      {showHelpModal && (
+        <div className="score-popup-overlay" onClick={() => setShowHelpModal(false)}>
+          <div className="help-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="close-popup" 
+              onClick={() => setShowHelpModal(false)}
+            >
+              ×
+            </button>
+            <div className="help-content">
+              <h2>How to Play Jigsaw Map</h2>
+              
+              <div className="help-section">
+                <h3>🎯 Objective</h3>
+                <p>Place all the countries in their correct positions relative to other countries on the map.</p>
+              </div>
+              
+              <div className="help-section">
+                <h3>📍 Getting Started</h3>
+                <p>Three countries have been placed for you as reference points to help you get oriented.</p>
+              </div>
+              
+              <div className="help-section">
+                <h3>🎮 How to Play</h3>
+                <ul>
+                  <li>Click the "+" buttons below to add countries to the map</li>
+                  <li>Drag countries to position them on the map</li>
+                  <li>Use zoom controls or pinch gestures to navigate</li>
+                  <li>Submit your guess as many times as you want to see your score</li>
+                  <li>Click "Show Solution" to see the correct positions</li>
+                </ul>
+              </div>
+              
+              <div className="help-section">
+                <h3>🌍 Location Reference</h3>
+                <p>Country locations roughly correspond to the GPS coordinates of their capital cities.</p>
+              </div>
+              
+              <div className="help-section">
+                <h3>📱 Controls</h3>
+                <p><strong>Desktop:</strong> Mouse wheel to zoom, click and drag to pan</p>
+                <p><strong>Mobile:</strong> Pinch to zoom, single finger to pan</p>
+              </div>
+              
+              <div className="help-section github-section">
+                <h3>🔗 Source Code</h3>
+                <p>Check out the project on GitHub:</p>
+                <a 
+                  href="https://github.com/error-magnet/jigsaw-map" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="github-link"
+                >
+                  https://github.com/error-magnet/jigsaw-map
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Countries Modal */}
+      {showCountriesModal && (
+        <div className="score-popup-overlay" onClick={() => setShowCountriesModal(false)}>
+          <div className="countries-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="close-popup" 
+              onClick={() => setShowCountriesModal(false)}
+            >
+              ×
+            </button>
+            <div className="countries-modal-content">
+              <h2>Add Countries to the Map</h2>
+              <p className="countries-modal-subtitle">Click any country to add it to the map</p>
+              
+              {(() => {
+                const unplacedCountries = countries.filter(country => !userPositions[country.name]);
+                const sectionsCount = 10;
+                const countriesPerSection = Math.ceil(unplacedCountries.length / sectionsCount);
+                
+                return Array.from({ length: sectionsCount }, (_, sectionIndex) => {
+                  const startIndex = sectionIndex * countriesPerSection;
+                  const endIndex = Math.min(startIndex + countriesPerSection, unplacedCountries.length);
+                  const sectionCountries = unplacedCountries.slice(startIndex, endIndex);
+                  
+                  if (sectionCountries.length === 0) return null;
+                  
+                  return (
+                    <div key={`section-${sectionIndex}`} className="countries-section">
+                      <div className="countries-list">
+                        {sectionCountries.map((country, index) => {
+                          // Convert hex color to muted version (same logic as CountryBlock)
+                          const hexToMuted = (hex) => {
+                            hex = hex.replace('#', '');
+                            const r = parseInt(hex.substr(0, 2), 16);
+                            const g = parseInt(hex.substr(2, 2), 16);
+                            const b = parseInt(hex.substr(4, 2), 16);
+                            
+                            const avg = (r + g + b) / 3;
+                            const factor = 0.4;
+                            const lighten = 0.3;
+                            
+                            const newR = Math.min(255, Math.round(r * factor + avg * (1 - factor) + lighten * 255));
+                            const newG = Math.min(255, Math.round(g * factor + avg * (1 - factor) + lighten * 255));
+                            const newB = Math.min(255, Math.round(b * factor + avg * (1 - factor) + lighten * 255));
+                            
+                            return { r: newR, g: newG, b: newB };
+                          };
+
+                          // Calculate luminance to determine text color
+                          const getLuminance = (r, g, b) => {
+                            const [rs, gs, bs] = [r, g, b].map(c => {
+                              c = c / 255;
+                              return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+                            });
+                            return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+                          };
+
+                          const mutedRgb = hexToMuted(country.color);
+                          const backgroundColor = `rgb(${mutedRgb.r}, ${mutedRgb.g}, ${mutedRgb.b})`;
+                          const luminance = getLuminance(mutedRgb.r, mutedRgb.g, mutedRgb.b);
+                          const textColor = luminance > 0.5 ? 'black' : 'white';
+                          
+                          return (
+                            <button
+                              key={`add-${country.name}`}
+                              className="add-country-btn"
+                              style={{ 
+                                backgroundColor: backgroundColor,
+                                borderColor: country.color,
+                                color: textColor
+                              }}
+                              onClick={() => {
+                                handlePositionChange(country.name, { x: 20, y: 20 }); // Top corner position
+                                setShowCountriesModal(false); // Close modal after adding
+                                // Scroll to top to see the canvas
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }}
+                            >
+                              + {country.name}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
+            </div>
           </div>
         </div>
       )}
