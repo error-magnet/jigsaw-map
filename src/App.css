@@ -20,7 +20,7 @@
   background-color: #f8fafc;
 }
 
-.game-header-controls {
+.game-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,14 +52,14 @@
   font-weight: 400;
 }
 
-.controls-section {
+.header-controls {
   display: flex;
   gap: 0.75rem;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.controls-section button {
+.header-controls button {
   background-color: #0f172a;
   color: white;
   border: none;
@@ -75,15 +75,15 @@
   height: 36px;
 }
 
-.controls-section button:hover {
+.header-controls button:hover {
   background-color: #1e293b;
 }
 
-.controls-section button:active {
+.header-controls button:active {
   background-color: #334155;
 }
 
-.controls-section button:disabled {
+.header-controls button:disabled {
   background-color: #cbd5e1;
   color: #64748b;
   cursor: not-allowed;
@@ -120,13 +120,46 @@
 }
 
 .btn-countries {
-  background-color: #0ea5e9 !important;
+  background-color: #1e40af !important;
   color: white !important;
   border: none !important;
 }
 
 .btn-countries:hover {
-  background-color: #0284c7 !important;
+  background-color: #1d4ed8 !important;
+}
+
+.btn-countries .plus-icon {
+  color: #bfdbfe;
+  margin-right: 0.25rem;
+}
+
+.btn-neutral {
+  background-color: #64748b !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-neutral:hover {
+  background-color: #475569 !important;
+}
+
+.btn-black {
+  background-color: #0f172a !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-black:hover {
+  background-color: #1e293b !important;
+}
+
+/* Button Separator */
+.button-separator {
+  width: 1px;
+  height: 24px;
+  background-color: #e2e8f0;
+  margin: 0 0.5rem;
 }
 
 .zoom-controls {
@@ -238,6 +271,68 @@
   -webkit-touch-callout: none;
 }
 
+/* Bottom Controls */
+.bottom-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.bottom-controls .bottom-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.bottom-controls button {
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+}
+
+.bottom-controls button:hover {
+  background-color: #1e293b;
+}
+
+/* GitHub Link in Bottom Controls */
+.github-link-bottom {
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  text-decoration: none;
+}
+
+.github-link-bottom:hover {
+  background-color: #1e293b;
+  color: white;
+  text-decoration: none;
+}
 
 .country-block {
   display: inline-block;
@@ -580,30 +675,6 @@
   color: #374151;
 }
 
-/* Help Button */
-.help-button {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid #64748b;
-  background-color: #f8fafc;
-  color: #64748b;
-  font-size: 1.25rem;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  margin-right: 1rem;
-}
-
-.help-button:hover {
-  background-color: #64748b;
-  color: white;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
 /* Help Modal */
 .help-modal {
@@ -729,7 +800,7 @@
     gap: 0.5rem;
   }
   
-  .game-header-controls {
+  .game-header {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
@@ -747,24 +818,39 @@
     font-size: 0.8rem;
   }
   
-  .controls-section {
+  .header-controls {
     justify-content: center;
     gap: 0.5rem;
   }
   
-  .controls-section button {
+  .header-controls button {
     font-size: 0.75rem;
     padding: 0.4rem 0.8rem;
     height: 32px;
   }
   
-  .help-button {
-    width: 32px;
-    height: 32px;
-    font-size: 1rem;
-    margin-right: 0;
-    margin-bottom: 1rem;
+  .bottom-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    align-items: stretch;
   }
+  
+  .bottom-controls .bottom-buttons {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .bottom-controls button {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    height: 32px;
+  }
+  
+  .github-link-bottom {
+    align-self: center;
+  }
+  
   
   .game-board {
     min-height: 400px;
@@ -824,5 +910,10 @@
   .country-block {
     font-size: 0.5rem;
     padding: 0.08rem 0.15rem;
+  }
+  
+  .github-link-bottom {
+    padding: 0.4rem 0.8rem;
+    height: 32px;
   }
 }
