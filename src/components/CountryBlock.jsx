@@ -115,8 +115,8 @@ const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position
           
           onPositionChange(country.name, { x: centeredX, y: centeredY });
           
-          // Trigger feedback after a short delay to allow score calculation
-          setTimeout(() => onDragEnd && onDragEnd(country.name), 50);
+          // For header countries, feedback is handled in GameBoard's onPositionChange
+          // Don't trigger additional feedback here
           feedbackTriggered = true;
         }
       } else if (isPlaced) {

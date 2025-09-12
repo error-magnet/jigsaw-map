@@ -351,7 +351,11 @@ const GameBoard = () => {
                   country={currentRandomCountry}
                   onPositionChange={(countryName, position) => {
                     handlePositionChange(countryName, position);
-                    setTimeout(() => getRandomCountry(), 100);
+                    // Trigger feedback immediately for header drops, then change random country
+                    setTimeout(() => {
+                      handleDragEnd(countryName);
+                      setTimeout(() => getRandomCountry(), 50);
+                    }, 50);
                   }}
                   onDragEnd={handleDragEnd}
                   isPlaced={false}
