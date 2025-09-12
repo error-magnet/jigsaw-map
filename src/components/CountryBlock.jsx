@@ -65,11 +65,15 @@ const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position
       
       // Update position for placed countries or track drag position for header countries
       if (isPlaced) {
+        // Account for zoom scaling when calculating delta
+        const scaledDeltaX = deltaX / zoom;
+        const scaledDeltaY = deltaY / zoom;
+        
         // Update position immediately for responsive dragging
         requestAnimationFrame(() => {
           onPositionChange(country.name, {
-            x: startPosX + deltaX,
-            y: startPosY + deltaY
+            x: startPosX + scaledDeltaX,
+            y: startPosY + scaledDeltaY
           });
         });
       } else {
