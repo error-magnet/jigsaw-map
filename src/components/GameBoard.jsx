@@ -14,6 +14,16 @@ const GameBoard = () => {
   const initialZoom = isMobile ? 0.6 : 1;
   
   const { zoom, pan, handleZoom, handlePan, resetZoom, zoomIn, zoomOut } = useZoom(initialZoom, 0.5, 10);
+  
+  // Set initial pan position for mobile to show more of the right side of the map
+  const [initialPanSet, setInitialPanSet] = useState(false);
+  
+  useEffect(() => {
+    if (isMobile && !initialPanSet) {
+      handlePan(-150, 0); // Move view 150px to the right
+      setInitialPanSet(true);
+    }
+  }, [isMobile, initialPanSet, handlePan]);
   const [isPanning, setIsPanning] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [lastTouchDistance, setLastTouchDistance] = useState(null);
@@ -43,11 +53,69 @@ const GameBoard = () => {
   const [showCountriesModal, setShowCountriesModal] = useState(false);
   const [currentRandomCountry, setCurrentRandomCountry] = useState(null);
 
+  const [countryScores, setCountryScores] = useState({});
+  const [confettiCountry, setConfettiCountry] = useState(null);
+  const [feedbackText, setFeedbackText] = useState({});
+
   const handlePositionChange = (countryName, position) => {
     setUserPositions(prev => ({
       ...prev,
       [countryName]: position
     }));
+
+    // Calculate real-time score for this country
+    const country = countries.find(c => c.name === countryName);
+    if (country) {
+      const distance = Math.sqrt(
+        Math.pow(position.x - country.correctPosition.x, 2) + 
+        Math.pow(position.y - country.correctPosition.y, 2)
+      );
+      const maxDistance = 500;
+      const normalizedDistance = Math.min(distance / maxDistance, 1);
+      const countryScore = Math.max(0, 100 * (1 - normalizedDistance));
+      const roundedScore = Math.round(countryScore);
+      
+      // Only show feedback if this is the end of a drag (not continuous updates during drag)
+      // We can detect this by checking if the country was already scored recently
+      const wasRecentlyScored = countryScores[countryName] !== undefined;
+      
+      setCountryScores(prev => ({
+        ...prev,
+        [countryName]: roundedScore
+      }));
+
+      if (!wasRecentlyScored) {
+        // Show confetti for excellent placement (95+) - no text feedback
+        if (roundedScore >= 95) {
+          setConfettiCountry(countryName);
+          setTimeout(() => setConfettiCountry(null), 1000);
+        } else {
+          // Show feedback text only if not showing confetti
+          let feedbackMessage = '';
+          if (roundedScore >= 90) {
+            feedbackMessage = 'Very close!';
+          } else if (roundedScore >= 50) {
+            feedbackMessage = 'Almost there!';
+          } else {
+            feedbackMessage = 'Far!!';
+          }
+
+          setFeedbackText(prev => ({
+            ...prev,
+            [countryName]: feedbackMessage
+          }));
+
+          // Hide feedback text after 1 second
+          setTimeout(() => {
+            setFeedbackText(prev => {
+              const updated = { ...prev };
+              delete updated[countryName];
+              return updated;
+            });
+          }, 1000);
+        }
+      }
+    }
   };
 
   const handleSubmit = () => {
@@ -65,6 +133,9 @@ const GameBoard = () => {
     setShowScorePopup(false);
     setSolutionShown(false);
     setIsFullSolutionShown(false);
+    setCountryScores({});
+    setConfettiCountry(null);
+    setFeedbackText({});
     resetZoom();
     getRandomCountry();
   };
@@ -286,6 +357,9 @@ const GameBoard = () => {
                   gameBoardRef={gameBoardRef}
                   zoom={zoom}
                   pan={pan}
+                  score={countryScores[currentRandomCountry?.name]}
+                  showConfetti={confettiCountry === currentRandomCountry?.name}
+                  feedbackText={feedbackText[currentRandomCountry?.name]}
                 />
               </div>
               <span className="place-this-subtitle">drag this!</span>
@@ -353,6 +427,9 @@ const GameBoard = () => {
                 gameBoardRef={gameBoardRef}
                 zoom={zoom}
                 pan={pan}
+                score={countryScores[country.name]}
+                showConfetti={confettiCountry === country.name}
+                feedbackText={feedbackText[country.name]}
               />
             )
           ))}
@@ -489,8 +566,8 @@ const GameBoard = () => {
               <div className="help-section">
                 <h3>📊 Scoring</h3>
                 <ul>
-                  <li><strong>Green (80-100):</strong> Correct placement</li>
-                  <li><strong>Yellow (50-79):</strong> Almost there</li>
+                  <li><strong>Green (90-100):</strong> Correct placement</li>
+                  <li><strong>Yellow (50-89):</strong> Almost there</li>
                   <li><strong>Red (0-49):</strong> Off target</li>
                   <li>Click "Check Score" anytime to see your progress</li>
                 </ul>

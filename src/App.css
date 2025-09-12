@@ -275,6 +275,7 @@
   border: 1px solid #e2e8f0;
   transition: all 0.2s ease;
   cursor: pointer;
+  touch-action: manipulation; /* Enable touch on zoom buttons */
 }
 
 .floating-zoom-controls button:hover {
@@ -965,6 +966,7 @@
     width: 32px;
     height: 32px;
     font-size: 0.875rem;
+    touch-action: manipulation; /* Enable touch on zoom buttons for mobile */
   }
   
   .floating-zoom-controls .zoom-level {
@@ -1093,5 +1095,18 @@
   
   .close-popup:hover {
     background-color: rgba(255, 255, 255, 1);
+  }
+}
+
+/* Confetti bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }

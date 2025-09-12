@@ -3,8 +3,8 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
 
   // Calculate performance categories (excluding initial countries)
   const categories = {
-    correct: 0,      // >=80%
-    almostThere: 0,  // 50-79%
+    correct: 0,      // >=90%
+    almostThere: 0,  // 50-89%
     off: 0           // <50%
   };
 
@@ -14,7 +14,7 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
     // Skip initial countries from category counts
     // Only count countries that were actually placed (score >= 0 means they were placed, -1 means not placed)
     if (!initialCountries.includes(country) && countryScore >= 0) {
-      if (countryScore >= 80) {
+      if (countryScore >= 90) {
         categories.correct++;
       } else if (countryScore >= 50) {
         categories.almostThere++;
@@ -28,7 +28,6 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
     <div className="score-display">
       <div className="score-summary">
         <div className="score-header">
-          <div className="score-number-horizontal">{score.percentage}/100</div>
           <div className="performance-stats-horizontal">
             <div className="stat-item correct">
               <span className="stat-number">{categories.correct}</span>
@@ -56,11 +55,11 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
                 const isInitial = ['India', 'United States of America', 'UK'].includes(country);
                 return !isInitial && countryScore >= 0;
               })
-              .sort(([,a], [,b]) => b - a) // Sort by score (highest first)
+              .sort(([a], [b]) => a.localeCompare(b)) // Sort alphabetically by country name
               .map(([country, countryScore]) => {
                 // Determine category for color coding
                 let category = 'off';
-                if (countryScore >= 80) {
+                if (countryScore >= 90) {
                   category = 'correct';
                 } else if (countryScore >= 50) {
                   category = 'almost';

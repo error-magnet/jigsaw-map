@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, gameBoardRef, zoom, pan }) => {
+const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, gameBoardRef, zoom, pan, score, showConfetti, feedbackText }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragPosition, setDragPosition] = useState(null);
 
@@ -158,10 +158,45 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
     return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
   };
 
-  const mutedRgb = hexToMuted(country.color);
-  const backgroundColor = `rgb(${mutedRgb.r}, ${mutedRgb.g}, ${mutedRgb.b})`;
-  const luminance = getLuminance(mutedRgb.r, mutedRgb.g, mutedRgb.b);
-  const textColor = luminance > 0.5 ? 'black' : 'white';
+  // Determine background color based on score if available and placed
+  let backgroundColor, textColor;
+  
+  if (isPlaced && typeof score === 'number') {
+    // Use score-based colors with dynamic gradients
+    if (score >= 90) {
+      // Green gradient for excellent scores (90-100)
+      const intensity = Math.min((score - 90) / 10, 1); // 0 to 1
+      const green = Math.round(155 + intensity * 100); // 155 to 255
+      backgroundColor = `rgb(34, ${green}, 94)`;
+      textColor = 'white';
+    } else if (score >= 70) {
+      // Yellow-orange gradient for good scores (70-89)
+      const intensity = (score - 70) / 20; // 0 to 1
+      const red = Math.round(255 - intensity * 20); // 255 to 235
+      const green = Math.round(140 + intensity * 75); // 140 to 215
+      backgroundColor = `rgb(${red}, ${green}, 8)`;
+      textColor = 'black';
+    } else if (score >= 40) {
+      // Orange to red gradient for poor scores (40-69)
+      const intensity = (score - 40) / 30; // 0 to 1
+      const red = 239;
+      const green = Math.round(68 + intensity * 100); // 68 to 168
+      backgroundColor = `rgb(${red}, ${green}, 68)`;
+      textColor = 'white';
+    } else {
+      // Deep red for very poor scores (0-39)
+      const intensity = score / 40; // 0 to 1
+      const red = Math.round(139 + intensity * 100); // 139 to 239
+      backgroundColor = `rgb(${red}, 68, 68)`;
+      textColor = 'white';
+    }
+  } else {
+    // Use original muted country colors for unplaced or unscored countries
+    const mutedRgb = hexToMuted(country.color);
+    backgroundColor = `rgb(${mutedRgb.r}, ${mutedRgb.g}, ${mutedRgb.b})`;
+    const luminance = getLuminance(mutedRgb.r, mutedRgb.g, mutedRgb.b);
+    textColor = luminance > 0.5 ? 'black' : 'white';
+  }
 
   return (
     <>
@@ -180,7 +215,60 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
         onMouseDown={handleStart}
         onTouchStart={handleStart}
       >
-        {country.name}
+        <span style={{ 
+          display: 'block',
+          textAlign: 'center',
+          position: 'relative',
+          paddingLeft: '6px' // Make room for the dot on the left
+        }}>
+          {country.name}
+        </span>
+        
+        {/* Top-left positioning dot - represents the coordinate */}
+        <div style={{
+          position: 'absolute',
+          top: '2px',
+          left: '2px',
+          width: '4px',
+          height: '4px',
+          borderRadius: '50%',
+          backgroundColor: textColor,
+          opacity: 0.7
+        }} />
+        
+        {showConfetti && (
+          <span style={{ 
+            position: 'absolute', 
+            top: '-15px', 
+            right: '-10px', 
+            fontSize: '16px',
+            animation: 'bounce 0.6s ease-in-out',
+            zIndex: 1001
+          }}>
+            🎉
+          </span>
+        )}
+        
+        {feedbackText && (
+          <span style={{ 
+            position: 'absolute', 
+            top: '-25px', 
+            left: '50%',
+            transform: 'translateX(-50%)',
+            fontSize: '10px',
+            fontWeight: 'bold',
+            color: score >= 90 ? '#22c55e' : score >= 70 ? '#eab308' : '#ef4444',
+            background: 'rgba(255, 255, 255, 0.9)',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            border: '1px solid rgba(0, 0, 0, 0.1)',
+            animation: 'bounce 0.6s ease-in-out',
+            zIndex: 1002,
+            whiteSpace: 'nowrap'
+          }}>
+            {feedbackText}
+          </span>
+        )}
       </div>
       
       {/* Drag preview for header countries */}
@@ -202,7 +290,26 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
           }}
         >
-          {country.name}
+          <span style={{ 
+            display: 'block',
+            textAlign: 'center',
+            position: 'relative',
+            paddingLeft: '6px' // Make room for the dot on the left
+          }}>
+            {country.name}
+          </span>
+          
+          {/* Top-left positioning dot - represents the coordinate */}
+          <div style={{
+            position: 'absolute',
+            top: '2px',
+            left: '2px',
+            width: '4px',
+            height: '4px',
+            borderRadius: '50%',
+            backgroundColor: textColor,
+            opacity: 0.7
+          }} />
         </div>
       )}
     </>
