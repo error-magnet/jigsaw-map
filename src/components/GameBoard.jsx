@@ -123,8 +123,6 @@ const GameBoard = () => {
   const handleRandomCountryPlace = () => {
     if (currentRandomCountry) {
       handlePositionChange(currentRandomCountry.name, { x: 120, y: 20 });
-      resetZoom();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
       // Get next random country
       setTimeout(() => getRandomCountry(), 100);
     }
@@ -280,8 +278,6 @@ const GameBoard = () => {
                   country={currentRandomCountry}
                   onPositionChange={(countryName, position) => {
                     handlePositionChange(countryName, position);
-                    resetZoom();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                     setTimeout(() => getRandomCountry(), 100);
                   }}
                   isPlaced={false}
@@ -580,11 +576,11 @@ const GameBoard = () => {
                                 color: textColor
                               }}
                               onClick={() => {
-                                handlePositionChange(country.name, { x: 120, y: 20 }); // More to the right position
+                                // Calculate position in current viewport - place at top-left of visible area
+                                const viewportX = -pan.x / zoom + 50; // 50px offset from left edge
+                                const viewportY = -pan.y / zoom + 50; // 50px offset from top edge
+                                handlePositionChange(country.name, { x: viewportX, y: viewportY });
                                 setShowCountriesModal(false); // Close modal after adding
-                                resetZoom(); // Reset view to default zoom and pan
-                                // Scroll to top to see the canvas
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
                               }}
                             >
                               {country.name}
