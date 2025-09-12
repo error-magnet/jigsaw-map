@@ -329,11 +329,10 @@ const GameBoard = () => {
           className="game-world"
           style={{
             transform: `scale(${zoom}) translate(${pan.x}px, ${pan.y}px)`,
-            transformOrigin: 'center center',
-            width: '900px',
-            height: '600px',
-            position: 'relative',
-            margin: 'auto'
+            transformOrigin: '0 0',
+            width: '100%',
+            height: '100%',
+            position: 'relative'
           }}
         >
           {/* World area */}
@@ -341,12 +340,13 @@ const GameBoard = () => {
             className="world-area"
             style={{
               position: 'absolute',
-              width: '100%',
-              height: '100%',
+              width: '900px',
+              height: '600px',
               backgroundColor: 'rgba(30, 58, 138, 0.08)',
               pointerEvents: 'none',
-              top: 0,
-              left: 0
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
             }}
           />
           

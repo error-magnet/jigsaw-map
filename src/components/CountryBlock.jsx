@@ -103,18 +103,13 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
                              currentPos.y <= rect.bottom;
         
         if (isInGameBoard) {
-          // Convert screen coordinates to game world coordinates (accounting for zoom, pan, and centering)
-          const boardCenterX = rect.width / 2;
-          const boardCenterY = rect.height / 2;
-          const worldCenterX = 450; // 900px / 2
-          const worldCenterY = 300; // 600px / 2
+          // Convert screen coordinates to game world coordinates
+          // Account for the centered world area (900x600 centered in container)
+          const centerOffsetX = rect.width / 2 - 450 * zoom;
+          const centerOffsetY = rect.height / 2 - 300 * zoom;
           
-          // Account for the centered game-world within game-board
-          const offsetX = boardCenterX - worldCenterX * zoom;
-          const offsetY = boardCenterY - worldCenterY * zoom;
-          
-          const gameX = (currentPos.x - rect.left - offsetX - pan.x * zoom) / zoom;
-          const gameY = (currentPos.y - rect.top - offsetY - pan.y * zoom) / zoom;
+          const gameX = (currentPos.x - rect.left - centerOffsetX - pan.x * zoom) / zoom;
+          const gameY = (currentPos.y - rect.top - centerOffsetY - pan.y * zoom) / zoom;
           
           onPositionChange(country.name, { x: gameX, y: gameY });
         }
@@ -177,8 +172,8 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
           borderColor: country.color,
           color: textColor,
           position: isPlaced ? 'absolute' : 'relative',
-          left: isPlaced ? (position?.x || 0) : 'auto',
-          top: isPlaced ? (position?.y || 0) : 'auto',
+          left: isPlaced ? `calc(50% + ${(position?.x || 0) - 450}px)` : 'auto',
+          top: isPlaced ? `calc(50% + ${(position?.y || 0) - 300}px)` : 'auto',
           cursor: 'grab',
           opacity: (isDragging && !isPlaced) ? 0.5 : 1
         }}
