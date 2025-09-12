@@ -40,6 +40,7 @@ const GameBoard = () => {
   const [solutionShown, setSolutionShown] = useState(false);
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [showCountriesModal, setShowCountriesModal] = useState(false);
+  const [currentRandomCountry, setCurrentRandomCountry] = useState(null);
 
   const handlePositionChange = (countryName, position) => {
     setUserPositions(prev => ({
@@ -76,6 +77,28 @@ const GameBoard = () => {
     });
     setUserPositions(solutionPositions);
     setSolutionShown(true);
+  };
+
+  const getRandomCountry = () => {
+    const unplacedCountries = countries.filter(country => !userPositions[country.name]);
+    if (unplacedCountries.length === 0) {
+      setCurrentRandomCountry(null);
+      return null;
+    }
+    const randomIndex = Math.floor(Math.random() * unplacedCountries.length);
+    const randomCountry = unplacedCountries[randomIndex];
+    setCurrentRandomCountry(randomCountry);
+    return randomCountry;
+  };
+
+  const handleRandomCountryPlace = () => {
+    if (currentRandomCountry) {
+      handlePositionChange(currentRandomCountry.name, { x: 120, y: 20 });
+      resetZoom();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Get next random country
+      setTimeout(() => getRandomCountry(), 100);
+    }
   };
 
   // Helper function to get distance between two touches
@@ -207,12 +230,17 @@ const GameBoard = () => {
     }
   }, [isPanning, lastMousePos, lastTouchDistance, handleZoom, handlePan]);
 
+  // Initialize random country on component mount and when countries change
+  useEffect(() => {
+    getRandomCountry();
+  }, [userPositions]);
+
   return (
     <div className="game-container">
       <div className="game-header">
         <div className="header-content">
           <h1>Jigsaw Map</h1>
-          <p>Place countries on the map and see how well you do!</p>
+          <p>Place countries on the map!</p>
         </div>
         
         <div className="header-controls">
@@ -220,8 +248,26 @@ const GameBoard = () => {
             className="btn-countries" 
             onClick={() => setShowCountriesModal(true)}
           >
-            <span className="plus-icon">+</span> Add Countries
+            <span className="plus-icon">+</span> Countries
           </button>
+          {currentRandomCountry && (
+            <div className="random-country-container">
+              <CountryBlock
+                country={currentRandomCountry}
+                onPositionChange={(countryName, position) => {
+                  handlePositionChange(countryName, position);
+                  resetZoom();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  setTimeout(() => getRandomCountry(), 100);
+                }}
+                isPlaced={false}
+                position={null}
+                index={-1}
+                onPan={handlePan}
+                gameBoardRef={gameBoardRef}
+              />
+            </div>
+          )}
           <div className="button-separator"></div>
           {!solutionShown && (
             <button 

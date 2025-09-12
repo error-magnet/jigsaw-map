@@ -129,14 +129,14 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
 
   return (
     <div
-      className={`country-block ${isDragging ? 'dragging' : ''}`}
+      className={`country-block ${isDragging ? 'dragging' : ''} ${!isPlaced ? 'header-country' : ''}`}
       style={{
         backgroundColor: backgroundColor,
         borderColor: country.color,
         color: textColor,
         position: isPlaced ? 'absolute' : 'relative',
-        left: position?.x || 0,
-        top: position?.y || 0,
+        left: isPlaced ? (position?.x || 0) : 'auto',
+        top: isPlaced ? (position?.y || 0) : 'auto',
         cursor: 'grab'
       }}
       onMouseDown={handleStart}

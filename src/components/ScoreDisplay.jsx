@@ -26,32 +26,30 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
 
   return (
     <div className="score-display">
-      <div className="total-score">
-        <div className="score-circle">
-          <div className="score-number">{score.percentage}</div>
-          <div className="score-label">out of 100</div>
-        </div>
-        <h2>Final Score</h2>
-        <div className="performance-stats">
-          <div className="stat-item correct">
-            <span className="stat-number">{categories.correct}</span>
-            <span className="stat-label">Correct</span>
-          </div>
-          <div className="stat-item almost">
-            <span className="stat-number">{categories.almostThere}</span>
-            <span className="stat-label">Almost There</span>
-          </div>
-          <div className="stat-item off">
-            <span className="stat-number">{categories.off}</span>
-            <span className="stat-label">Off</span>
+      <div className="score-summary">
+        <div className="score-header">
+          <div className="score-number-horizontal">{score.percentage}/100</div>
+          <div className="performance-stats-horizontal">
+            <div className="stat-item correct">
+              <span className="stat-number">{categories.correct}</span>
+              <span className="stat-label">Correct</span>
+            </div>
+            <div className="stat-item almost">
+              <span className="stat-number">{categories.almostThere}</span>
+              <span className="stat-label">Almost</span>
+            </div>
+            <div className="stat-item off">
+              <span className="stat-number">{categories.off}</span>
+              <span className="stat-label">Off</span>
+            </div>
           </div>
         </div>
       </div>
       
       {showDetails && (
         <div className="individual-scores">
-          <h3>Top Country Scores:</h3>
-          <div className="scores-columns">
+          <h3>Your Country Scores:</h3>
+          <div className="scores-grid">
             {Object.entries(score.individualScores)
               .filter(([country, countryScore]) => {
                 // Only show countries that user actually placed (exclude initial countries and unplaced)
@@ -59,12 +57,11 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
                 return !isInitial && countryScore > 0;
               })
               .sort(([,a], [,b]) => b - a) // Sort by score (highest first)
-              .slice(0, 6) // Show top 6 countries
               .map(([country, countryScore]) => {
                 return (
                   <div key={country} className="country-score">
                     <span className="country-name">
-                      {country}:
+                      {country}
                     </span>
                     <span className="country-points">{countryScore}/100</span>
                   </div>
