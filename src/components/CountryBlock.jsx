@@ -3,18 +3,28 @@ import { useState } from 'react';
 const CountryBlock = ({ country, onPositionChange, isPlaced, position, index }) => {
   const [isDragging, setIsDragging] = useState(false);
 
-  const handleMouseDown = (e) => {
+  const getEventPosition = (e) => {
+    // Handle both mouse and touch events
+    if (e.touches && e.touches.length > 0) {
+      return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+    return { x: e.clientX, y: e.clientY };
+  };
+
+  const handleStart = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setIsDragging(true);
     
-    const startX = e.clientX;
-    const startY = e.clientY;
+    const startPos = getEventPosition(e);
     const startPosX = position?.x || 0;
     const startPosY = position?.y || 0;
 
-    const handleMouseMove = (e) => {
-      const deltaX = e.clientX - startX;
-      const deltaY = e.clientY - startY;
+    const handleMove = (e) => {
+      e.preventDefault();
+      const currentPos = getEventPosition(e);
+      const deltaX = currentPos.x - startPos.x;
+      const deltaY = currentPos.y - startPos.y;
       
       onPositionChange(country.name, {
         x: startPosX + deltaX,
@@ -22,14 +32,19 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index }) 
       });
     };
 
-    const handleMouseUp = () => {
+    const handleEnd = (e) => {
+      e.preventDefault();
       setIsDragging(false);
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousemove', handleMove);
+      document.removeEventListener('mouseup', handleEnd);
+      document.removeEventListener('touchmove', handleMove);
+      document.removeEventListener('touchend', handleEnd);
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mousemove', handleMove, { passive: false });
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('touchmove', handleMove, { passive: false });
+    document.addEventListener('touchend', handleEnd);
   };
 
   // Convert hex color to muted version
@@ -80,7 +95,8 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index }) 
         top: position?.y || 0,
         cursor: 'grab'
       }}
-      onMouseDown={handleMouseDown}
+      onMouseDown={handleStart}
+      onTouchStart={handleStart}
     >
       {country.name}
     </div>

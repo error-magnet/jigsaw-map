@@ -11,6 +11,8 @@ const GameBoard = () => {
   const { zoom, pan, handleZoom, handlePan, resetZoom, zoomIn, zoomOut } = useZoom();
   const [isPanning, setIsPanning] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
+  const [lastTouchDistance, setLastTouchDistance] = useState(null);
+  const [touches, setTouches] = useState([]);
   
   const getInitialPositions = () => {
     const positions = {};
@@ -43,9 +45,7 @@ const GameBoard = () => {
     const calculatedScore = calculateScore(userPositions, countries);
     setScore(calculatedScore);
     setGamePhase('submitted');
-    // Show score popup first, then show solution in background after a delay
     setShowScorePopup(true);
-    setTimeout(() => showSolution(), 1000);
   };
 
   const handleReset = () => {
@@ -69,6 +69,26 @@ const GameBoard = () => {
     });
     setUserPositions(solutionPositions);
     setSolutionShown(true);
+  };
+
+  // Helper function to get distance between two touches
+  const getTouchDistance = (touches) => {
+    const touch1 = touches[0];
+    const touch2 = touches[1];
+    return Math.sqrt(
+      Math.pow(touch2.clientX - touch1.clientX, 2) + 
+      Math.pow(touch2.clientY - touch1.clientY, 2)
+    );
+  };
+
+  // Helper function to get center point of two touches
+  const getTouchCenter = (touches) => {
+    const touch1 = touches[0];
+    const touch2 = touches[1];
+    return {
+      x: (touch1.clientX + touch2.clientX) / 2,
+      y: (touch1.clientY + touch2.clientY) / 2
+    };
   };
 
   // Zoom and pan event handlers
@@ -99,20 +119,86 @@ const GameBoard = () => {
     setIsPanning(false);
   };
 
+  // Touch event handlers
+  const handleTouchStart = (e) => {
+    e.preventDefault();
+    const touchArray = Array.from(e.touches);
+    setTouches(touchArray);
+
+    if (touchArray.length === 1) {
+      // Single touch - start panning
+      const touch = touchArray[0];
+      if (e.target === gameBoardRef.current || e.target.classList.contains('game-world')) {
+        setIsPanning(true);
+        setLastMousePos({ x: touch.clientX, y: touch.clientY });
+      }
+    } else if (touchArray.length === 2) {
+      // Two touches - prepare for pinch zoom
+      setIsPanning(false);
+      setLastTouchDistance(getTouchDistance(touchArray));
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    e.preventDefault();
+    const touchArray = Array.from(e.touches);
+    
+    if (touchArray.length === 1 && isPanning) {
+      // Single touch panning
+      const touch = touchArray[0];
+      const deltaX = touch.clientX - lastMousePos.x;
+      const deltaY = touch.clientY - lastMousePos.y;
+      handlePan(deltaX, deltaY);
+      setLastMousePos({ x: touch.clientX, y: touch.clientY });
+    } else if (touchArray.length === 2 && lastTouchDistance !== null) {
+      // Two touch pinch zoom
+      const currentDistance = getTouchDistance(touchArray);
+      const distanceChange = currentDistance - lastTouchDistance;
+      const zoomDelta = distanceChange * 0.002; // Adjust sensitivity
+      
+      handleZoom(zoomDelta);
+      setLastTouchDistance(currentDistance);
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    e.preventDefault();
+    const touchArray = Array.from(e.touches);
+    
+    if (touchArray.length === 0) {
+      // All touches ended
+      setIsPanning(false);
+      setLastTouchDistance(null);
+      setTouches([]);
+    } else if (touchArray.length === 1) {
+      // One touch remaining, switch to panning mode
+      setLastTouchDistance(null);
+      const touch = touchArray[0];
+      setIsPanning(true);
+      setLastMousePos({ x: touch.clientX, y: touch.clientY });
+    }
+  };
+
   useEffect(() => {
     const gameBoard = gameBoardRef.current;
     if (gameBoard) {
       gameBoard.addEventListener('wheel', handleWheel, { passive: false });
+      gameBoard.addEventListener('touchstart', handleTouchStart, { passive: false });
+      gameBoard.addEventListener('touchmove', handleTouchMove, { passive: false });
+      gameBoard.addEventListener('touchend', handleTouchEnd, { passive: false });
       document.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('mouseup', handleMouseUp);
       
       return () => {
         gameBoard.removeEventListener('wheel', handleWheel);
+        gameBoard.removeEventListener('touchstart', handleTouchStart);
+        gameBoard.removeEventListener('touchmove', handleTouchMove);
+        gameBoard.removeEventListener('touchend', handleTouchEnd);
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  }, [isPanning, lastMousePos, handleZoom, handlePan]);
+  }, [isPanning, lastMousePos, lastTouchDistance, handleZoom, handlePan]);
 
   return (
     <div className="game-container">
