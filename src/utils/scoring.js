@@ -24,7 +24,7 @@ export const calculateScore = (userPositions, countries) => {
       scores[country.name] = Math.round(countryScore);
       totalScore += countryScore;
     } else {
-      scores[country.name] = 0;
+      scores[country.name] = -1; // -1 indicates not placed, 0+ indicates placed with score
     }
   });
 

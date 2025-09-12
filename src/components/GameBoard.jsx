@@ -334,6 +334,20 @@ const GameBoard = () => {
             position: 'relative'
           }}
         >
+          {/* World area */}
+          <div 
+            className="world-area"
+            style={{
+              position: 'absolute',
+              width: '900px',
+              height: '600px',
+              backgroundColor: 'rgba(30, 58, 138, 0.08)',
+              pointerEvents: 'none',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}
+          />
           
           {countries.map((country, index) => (
             userPositions[country.name] && (

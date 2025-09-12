@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, onPan, gameBoardRef }) => {
   const [isDragging, setIsDragging] = useState(false);
+  const [dragPosition, setDragPosition] = useState(null);
 
   const getEventPosition = (e) => {
     // Handle both mouse and touch events
@@ -62,7 +63,7 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
       const deltaX = currentPos.x - startPos.x;
       const deltaY = currentPos.y - startPos.y;
       
-      // Only update position for placed countries (not header countries)
+      // Update position for placed countries or track drag position for header countries
       if (isPlaced) {
         // Update position immediately for responsive dragging
         requestAnimationFrame(() => {
@@ -70,6 +71,12 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
             x: startPosX + deltaX,
             y: startPosY + deltaY
           });
+        });
+      } else {
+        // For header countries, track drag position for visual feedback
+        setDragPosition({
+          x: currentPos.x,
+          y: currentPos.y
         });
       }
 
@@ -82,6 +89,7 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
     const handleEnd = (e) => {
       e.preventDefault();
       setIsDragging(false);
+      setDragPosition(null);
       
       // For header countries (not placed), check if dropped on game board
       if (!isPlaced && gameBoardRef?.current) {
@@ -152,22 +160,48 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, index, on
   const textColor = luminance > 0.5 ? 'black' : 'white';
 
   return (
-    <div
-      className={`country-block ${isDragging ? 'dragging' : ''} ${!isPlaced ? 'header-country' : ''}`}
-      style={{
-        backgroundColor: backgroundColor,
-        borderColor: country.color,
-        color: textColor,
-        position: isPlaced ? 'absolute' : 'relative',
-        left: isPlaced ? (position?.x || 0) : 'auto',
-        top: isPlaced ? (position?.y || 0) : 'auto',
-        cursor: 'grab'
-      }}
-      onMouseDown={handleStart}
-      onTouchStart={handleStart}
-    >
-      {country.name}
-    </div>
+    <>
+      <div
+        className={`country-block ${isDragging ? 'dragging' : ''} ${!isPlaced ? 'header-country' : ''}`}
+        style={{
+          backgroundColor: backgroundColor,
+          borderColor: country.color,
+          color: textColor,
+          position: isPlaced ? 'absolute' : 'relative',
+          left: isPlaced ? (position?.x || 0) : 'auto',
+          top: isPlaced ? (position?.y || 0) : 'auto',
+          cursor: 'grab',
+          opacity: (isDragging && !isPlaced) ? 0.5 : 1
+        }}
+        onMouseDown={handleStart}
+        onTouchStart={handleStart}
+      >
+        {country.name}
+      </div>
+      
+      {/* Drag preview for header countries */}
+      {isDragging && !isPlaced && dragPosition && (
+        <div
+          className="country-block drag-preview"
+          style={{
+            backgroundColor: backgroundColor,
+            borderColor: country.color,
+            color: textColor,
+            position: 'fixed',
+            left: dragPosition.x - 30,
+            top: dragPosition.y - 15,
+            cursor: 'grabbing',
+            pointerEvents: 'none',
+            zIndex: 1000,
+            opacity: 0.9,
+            transform: 'scale(1.05)',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+          }}
+        >
+          {country.name}
+        </div>
+      )}
+    </>
   );
 };
 

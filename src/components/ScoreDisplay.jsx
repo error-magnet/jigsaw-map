@@ -12,8 +12,8 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
 
   Object.entries(score.individualScores).forEach(([country, countryScore]) => {
     // Skip initial countries from category counts
-    // Only count countries that were actually placed (score > 0 means they were placed)
-    if (!initialCountries.includes(country) && countryScore > 0) {
+    // Only count countries that were actually placed (score >= 0 means they were placed, -1 means not placed)
+    if (!initialCountries.includes(country) && countryScore >= 0) {
       if (countryScore >= 80) {
         categories.correct++;
       } else if (countryScore >= 50) {
@@ -48,18 +48,26 @@ const ScoreDisplay = ({ score, showDetails = false }) => {
       
       {showDetails && (
         <div className="individual-scores">
-          <h3>Your Country Scores:</h3>
           <div className="scores-grid">
             {Object.entries(score.individualScores)
               .filter(([country, countryScore]) => {
                 // Only show countries that user actually placed (exclude initial countries and unplaced)
+                // -1 means not placed, 0+ means placed with score
                 const isInitial = ['India', 'United States of America', 'UK'].includes(country);
-                return !isInitial && countryScore > 0;
+                return !isInitial && countryScore >= 0;
               })
               .sort(([,a], [,b]) => b - a) // Sort by score (highest first)
               .map(([country, countryScore]) => {
+                // Determine category for color coding
+                let category = 'off';
+                if (countryScore >= 80) {
+                  category = 'correct';
+                } else if (countryScore >= 50) {
+                  category = 'almost';
+                }
+                
                 return (
-                  <div key={country} className="country-score">
+                  <div key={country} className={`country-score ${category}`}>
                     <span className="country-name">
                       {country}
                     </span>
