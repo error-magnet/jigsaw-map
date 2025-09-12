@@ -103,9 +103,18 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
                              currentPos.y <= rect.bottom;
         
         if (isInGameBoard) {
-          // Convert screen coordinates to game world coordinates (accounting for zoom and pan)
-          const gameX = (currentPos.x - rect.left - pan.x * zoom) / zoom;
-          const gameY = (currentPos.y - rect.top - pan.y * zoom) / zoom;
+          // Convert screen coordinates to game world coordinates (accounting for zoom, pan, and centering)
+          const boardCenterX = rect.width / 2;
+          const boardCenterY = rect.height / 2;
+          const worldCenterX = 450; // 900px / 2
+          const worldCenterY = 300; // 600px / 2
+          
+          // Account for the centered game-world within game-board
+          const offsetX = boardCenterX - worldCenterX * zoom;
+          const offsetY = boardCenterY - worldCenterY * zoom;
+          
+          const gameX = (currentPos.x - rect.left - offsetX - pan.x * zoom) / zoom;
+          const gameY = (currentPos.y - rect.top - offsetY - pan.y * zoom) / zoom;
           
           onPositionChange(country.name, { x: gameX, y: gameY });
         }
