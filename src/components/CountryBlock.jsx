@@ -107,7 +107,11 @@ const CountryBlock = ({ country, onPositionChange, isPlaced, position, onPan, ga
           const gameX = (currentPos.x - rect.left - pan.x * zoom) / zoom;
           const gameY = (currentPos.y - rect.top - pan.y * zoom) / zoom;
           
-          onPositionChange(country.name, { x: gameX, y: gameY });
+          // Offset by half the country block size to center it on the drop point
+          const centeredX = gameX - 25; // Approximate half-width of country block
+          const centeredY = gameY - 15; // Approximate half-height of country block
+          
+          onPositionChange(country.name, { x: centeredX, y: centeredY });
         }
       }
       
