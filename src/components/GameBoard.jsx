@@ -77,11 +77,32 @@ const GameBoard = () => {
     setCountryScores(initialScores);
   }, [countries]);
 
-  const handlePositionChange = (countryName, position) => {
+  const handlePositionChange = (countryName, position, shouldCalculateScore = false) => {
     setUserPositions(prev => ({
       ...prev,
       [countryName]: position
     }));
+
+    // Calculate score immediately if requested (for drops)
+    if (shouldCalculateScore) {
+      const country = countries.find(c => c.name === countryName);
+      if (country) {
+        const distance = Math.sqrt(
+          Math.pow(position.x - country.correctPosition.x, 2) + 
+          Math.pow(position.y - country.correctPosition.y, 2)
+        );
+        const maxDistance = 500;
+        const normalizedDistance = Math.min(distance / maxDistance, 1);
+        const countryScore = Math.max(0, 100 * (1 - normalizedDistance));
+        const roundedScore = Math.round(countryScore);
+        
+        // Update the score immediately
+        setCountryScores(prev => ({
+          ...prev,
+          [countryName]: roundedScore
+        }));
+      }
+    }
   };
 
   const handleDragEnd = (countryName) => {

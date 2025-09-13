@@ -117,7 +117,7 @@ const CountryBlock = ({ country, onPositionChange, onDragEnd, isPlaced, position
           const centeredX = gameX - 25; // Approximate half-width of country block
           const centeredY = gameY - 15; // Approximate half-height of country block
           
-          onPositionChange(country.name, { x: centeredX, y: centeredY });
+          onPositionChange(country.name, { x: centeredX, y: centeredY }, true);
           
           // Trigger feedback for header country drops
           setTimeout(() => onDragEnd && onDragEnd(country.name), 50);
