@@ -82,10 +82,17 @@ const GameBoard = () => {
       ...prev,
       [countryName]: position
     }));
+  };
 
-    // Calculate real-time score for this country
+  const handleDragEnd = (countryName) => {
+    // Set this country as the top country (z-index 20)
+    setTopCountry(countryName);
+
+    // Calculate score for this country on drop
     const country = countries.find(c => c.name === countryName);
-    if (country) {
+    const position = userPositions[countryName];
+    
+    if (country && position) {
       const distance = Math.sqrt(
         Math.pow(position.x - country.correctPosition.x, 2) + 
         Math.pow(position.y - country.correctPosition.y, 2)
@@ -95,51 +102,45 @@ const GameBoard = () => {
       const countryScore = Math.max(0, 100 * (1 - normalizedDistance));
       const roundedScore = Math.round(countryScore);
       
-      // Always update the score
+      // Update the score
       setCountryScores(prev => ({
         ...prev,
         [countryName]: roundedScore
       }));
-    }
-  };
 
-  const handleDragEnd = (countryName) => {
-    // Set this country as the top country (z-index 20)
-    setTopCountry(countryName);
+      // Use the calculated score for feedback
+      const score = roundedScore;
 
-    // Get the current score for this country
-    const score = countryScores[countryName];
-    if (typeof score !== 'number') return;
-
-    // Show feedback based on score - always show one of these on drag end
-    if (score >= 95) {
-      // Show confetti for excellent placement
-      setConfettiCountry(countryName);
-      setTimeout(() => setConfettiCountry(null), 1000);
-    } else {
-      // Show feedback text
-      let feedbackMessage = '';
-      if (score >= 90) {
-        feedbackMessage = 'Very close!';
-      } else if (score >= 50) {
-        feedbackMessage = 'Almost there!';
+      // Show feedback based on score - always show one of these on drag end
+      if (score >= 95) {
+        // Show confetti for excellent placement
+        setConfettiCountry(countryName);
+        setTimeout(() => setConfettiCountry(null), 1000);
       } else {
-        feedbackMessage = 'Far!!';
+        // Show feedback text
+        let feedbackMessage = '';
+        if (score >= 90) {
+          feedbackMessage = 'Very close!';
+        } else if (score >= 50) {
+          feedbackMessage = 'Almost there!';
+        } else {
+          feedbackMessage = 'Far!!';
+        }
+
+        setFeedbackText(prev => ({
+          ...prev,
+          [countryName]: feedbackMessage
+        }));
+
+        // Hide feedback text after 1 second
+        setTimeout(() => {
+          setFeedbackText(prev => {
+            const updated = { ...prev };
+            delete updated[countryName];
+            return updated;
+          });
+        }, 1000);
       }
-
-      setFeedbackText(prev => ({
-        ...prev,
-        [countryName]: feedbackMessage
-      }));
-
-      // Hide feedback text after 1 second
-      setTimeout(() => {
-        setFeedbackText(prev => {
-          const updated = { ...prev };
-          delete updated[countryName];
-          return updated;
-        });
-      }, 1000);
     }
   };
 
